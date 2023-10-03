@@ -47,34 +47,23 @@ function RecentOrders() {
         try {
             if (localStorage.getItem('Token')) {
                 setIsLoading(true)
-                try {
-                    if (localStorage.getItem('Token')) {
-                        setIsLoading(true)
-                        const JwtToken = localStorage.getItem('Token');
-                        const sendUser = { JwtToken }
-                        const data = fetch("/api/V3/Students/MyTSlist", {
-                            method: "POST",
-                            headers: {
-                                'Content-type': 'application/json'
-                            },
-                            body: JSON.stringify(sendUser)
-                        }).then((a) => {
-                            return a.json();
-                        })
-                            .then((parsedUser) => {
-                                setRetdata(parsedUser.ReqData)
-                                setIsLoading(false)
-                                console.log(parsedUser.ReqData)
-
-                            })
-                    } else {
+                const JwtToken = localStorage.getItem('Token');
+                const sendUser = { JwtToken }
+                const data = fetch("/api/V3/Students/MyTSlist", {
+                    method: "POST",
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify(sendUser)
+                }).then((a) => {
+                    return a.json();
+                })
+                    .then((parsedUser) => {
+                        setRetdata(parsedUser.ReqData)
                         setIsLoading(false)
-                    }
-                } catch (error) {
-                    console.error(error)
+                        console.log(parsedUser.ReqData)
 
-                }
-
+                    })
             } else {
                 setIsLoading(false)
             }

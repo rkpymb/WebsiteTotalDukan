@@ -1,35 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Card } from '@mui/material';
-import CatTable from './Extra/CatTable';
-import { subDays } from 'date-fns';
+
 import { useRouter } from 'next/router'
 import Link from 'next/link';
-import Label from 'src/components/Label';
 import Image from 'next/image';
-import EditCatModal from '../Edit/EditCatModal'
+
 import Mstyles from '../../../Styles/home.module.css';
 import { DO_SPACES_URL, DO_SPACES_FOLDER } from '../../../Data/config'
-
+import CatgridlistLoader from '/src/components/Parts/CatgridlistLoader'
 import {
-    Tooltip,
-    Divider,
-    Box,
-    FormControl,
-    InputLabel,
 
-    IconButton,
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TablePagination,
-    TableRow,
-    TableContainer,
-    Select,
-    MenuItem,
-    Typography,
     useTheme,
-    CardHeader
 } from '@mui/material';
 
 function RecentOrders() {
@@ -53,7 +33,7 @@ function RecentOrders() {
                 return a.json();
             })
                 .then((parsed) => {
-                    console.log(parsed.ReqD.categories)
+                    // console.log(parsed.ReqD.categories)
                     setRetdata(parsed.ReqD.categories)
                     setIsLoading(false)
                 })
@@ -62,15 +42,15 @@ function RecentOrders() {
 
 
     }, [router.query])
-
-    const theme = useTheme();
-
+    
+ 
     return (<>
         {!isLoading &&
             <div className={Mstyles.CatGrid}>
 
                 {Retdata.map((item) => {
                     return <Link href={`/Category/${item.slug}`} key={item.id} style={{ textDecoration: 'none' }}>
+                        
                         <div className={Mstyles.CatGridItem}>
                             <div className={Mstyles.CatGridItemA}>
                                 <Image 
@@ -84,10 +64,21 @@ function RecentOrders() {
                                     blurDataURL={blurredImageData}
 
                                 />
+                                
+                              
                             </div>
-                            <div className={Mstyles.CatGridItemB}>
-                                <span>{item.name}</span>
+                            
+                            <div div className={Mstyles.OnlyDesktop}>
+                                <div div className={Mstyles.CatListItemBoxText}>
+                                    <span>{item.name.slice(0, 30) }</span>
+                                </div>
                             </div>
+                            <div div className={Mstyles.OnlyMobile}>
+                                <div div className={Mstyles.CatListItemBoxText}>
+                                    <span>{item.name.slice(0, 20)}</span>
+                                </div>
+                            </div>
+                          
 
                          
 
@@ -98,6 +89,10 @@ function RecentOrders() {
                 )}
             </div>
 
+        }
+
+        {isLoading && 
+            <CatgridlistLoader/>
         }
 
         </>

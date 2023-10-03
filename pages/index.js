@@ -6,7 +6,7 @@ import {
   Container,
   Button,
   styled
-} from '@mui/material';
+} from '@mui/material'; 
 
 import BaseLayout from 'src/layouts/BaseLayout';
 import Mstyles from '../Styles/home.module.css'
@@ -14,14 +14,15 @@ import CheckloginContext from '../context/auth/CheckloginContext'
 import Link from 'src/components/Link';
 import Head from 'next/head';
 import Navbarmain from '../src/components/Parts/Navbarmain'
-import HeroBox from '../src/components/Parts/HeroBox'
-import HeroBoxTwo from '../src/components/Parts/HeroBoxTwo'
-import HeroBoxThree from '../src/components/Parts/HeroBoxThree'
-import HeroBoxFour from '../src/components/Parts/HeroBoxFour'
-import HeroBoxFive from '../src/components/Parts/HeroBoxFive'
-import AppHeroBox from '../src/components/Parts/AppHeroBox'
+import FooterMobile from '../src/components/Parts/FooterMobile'
+import ProcedToCheckout from '../src/components/Parts/ProcedToCheckout'
+import HomeSliders from '../src/components/Parts/Sliders/HomeSliders'
+import CatlistGrid from './components/List/CatlistGrid'
+import TopCatMenu from '../src/components/Parts/TopCatMenu'
+import TrendingProducts from './components/List/TrendingProducts'
+
 import Footer from '../src/components/Parts/Footer'
-import ReviewBox from '../src/components/Parts/ReviewBox'
+import { LuLayoutGrid, LuLayoutList } from "react-icons/lu";
 import { useRouter, useParams } from 'next/router'
 const HeaderWrapper = styled(Card)(
   ({ theme }) => `
@@ -46,6 +47,7 @@ function Overview() {
   const router = useRouter()
   const [Loading, setLoading] = useState(true);
   const Contextdata = useContext(CheckloginContext)
+  const [show, setShow] = useState(false)
   useEffect(() => {
     setLoading(false)
     if (Contextdata.IsLogin == true) {
@@ -55,69 +57,61 @@ function Overview() {
     }
    
   });
+
+  const controlNavbar = () => {
+    if (window.scrollY > 450) {
+      setShow(true)
+    } else {
+      setShow(false)
+    }
+  }
+  useEffect(() => {
+    window.addEventListener('scroll', controlNavbar)
+    return () => {
+      window.removeEventListener('scroll', controlNavbar)
+    }
+  }, [])
   return (
     <OverviewWrapper>
       <Head> 
-        <title>SuperMarks.in</title>
+        <title>Toladukan.com</title>
       </Head>
-      <Navbarmain/>
+      <Navbarmain />
+     
+      
       {!Loading &&
         <div>
-          <div className={Mstyles.container}>
-            <div className={Mstyles.OnlyDesktop}>
-              <div style={{ minHeight: '100px' }}></div>
+          <div className={Mstyles.ContainerMainBoxFull}>
+            <HomeSliders />
+            <div className={Mstyles.ContainerMain}>
+              <div className={Mstyles.OnlyDesktop}>
+                <div style={{ minHeight: '30px' }}></div>
+              </div>
+              <CatlistGrid />
+              <div className={Mstyles.OnlyDesktop}>
+                <div style={{ minHeight: '30px' }}></div>
+              </div>
             </div>
-            <HeroBox />
-          </div>
-         
-         
-          <div className={Mstyles.HeroBoxTwoVBox}>
-            <div className={Mstyles.container}>
-              <HeroBoxTwo />
+            <div className={Mstyles.ContainerMain}>
+              <TrendingProducts />
             </div>
-          </div>
-          
-          <div className={Mstyles.container}>
-            <div className={Mstyles.OnlyDesktop}>
-              <div style={{ minHeight: '20px' }}></div>
-            </div>
-            <div className={Mstyles.mobilepadding}>
-              <HeroBoxThree />
-            </div>
-            
-          </div>
-          <div className={Mstyles.HeroBoxTwoVBox}>
-            <div className={Mstyles.container}>
-              <HeroBoxFour />
-            </div>
-          </div>
-          <div className={Mstyles.container}>
-            <div className={Mstyles.OnlyDesktop}>
-              <div style={{ minHeight: '20px' }}></div>
-            </div>
-            <div className={Mstyles.mobilepadding}>
-              <HeroBoxFive />
-            </div>
-
-          </div>
-          <div className={Mstyles.container}>
-            <div className={Mstyles.OnlyDesktop}>
-              <div style={{ minHeight: '20px' }}></div>
-            </div>
-            <div className={Mstyles.mobilepadding}>
-              <AppHeroBox />
-            </div>
-            <div style={{ minHeight: '50px' }}></div>
-          </div>
-
+          </div>         
           <div className={Mstyles.containerFull}>
             <div className={Mstyles.OnlyDesktop}>
               <div style={{ minHeight: '20px' }}></div>
             </div>
-            <Footer />
+            <div style={{ minHeight: '150px' }}></div>
+            <div className={Mstyles.OnlyDesktop}>
+              <Footer />
+            </div>
+            <ProcedToCheckout/>
+            <div className={Mstyles.OnlyMobile}>
+              <FooterMobile />
+            </div>
+            
 
           </div>
-          
+       
         </div>
        
       }

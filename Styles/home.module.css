@@ -2,39 +2,453 @@
   display: block;
 }
 
+.UserCounterGid {
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+}
+
+.Counterimage {
+  width: 50px;
+  height: 50px;
+}
+
+.UserCounterItem {
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  margin: 10px;
+}
+
+.UserCounterItemA {
+  display: flex;
+  flex-direction: column;
+}
+
+.UserCounterItemA span {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.UserCounterItemA small {
+  font-size: 13px;
+  font-weight: 500;
+}
+.FilterITem {
+  display: flex;
+  align-items: center;
+}
+
+.OrderStatusBox {
+  margin: auto;
+  width: 80%;
+  display: flex;
+
+}
+
+.OrderItemList {
+  margin: 10px;
+  border: 1px solid rgb(233, 222, 222);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.TrakingTimelineItemDate {
+  margin-left: 20px;
+  font-size: 10px;
+}
+
+.TrakingTimelineItem {
+  display: flex;
+  flex-direction: column;
+
+  margin: 5px;
+}
+
+.TrakingTimelineItemLine {
+  margin-left: 5px;
+  height: 50px;
+
+  width: 1px;
+  border: 1px dashed rgb(210, 196, 196);
+}
+
+.OrderStatusBoxA {
+  width: 60%;
+  padding: 20px;
+
+
+
+}
+
+.OrderStatusTextItemOutline {
+  width: fit-content;
+  font-size: 14px;
+  padding: 5px 15px 5px 15px;
+  border-radius: 20px;
+  border: 1px dashed #00a6ff;
+
+
+  color: #00a6ff;
+  display: flex;
+  align-items: center;
+
+}
+
+.OrderStatusTextItem {
+  width: fit-content;
+  font-size: 14px;
+  padding: 5px 15px 5px 15px;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+
+  background-color: #00a6ff;
+  color: white;
+  display: flex;
+  align-items: center;
+
+}
+
+.OrderStatusTextItemIcon {
+  margin-top: 5px;
+}
+
+.OrderStatusTextItemText {
+  margin-left: 5px;
+}
+
+.OrderStatusBoxABoxItemBox {
+  padding: 10px;
+}
+
+.OrderDetailsBox {
+  background-color: #ffffff;
+  padding: 20px;
+  min-height: 200px;
+  border: 1px solid rgb(223, 207, 207);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+
+
+
+}
+
+
+.OrderStatusBoxB {
+  width: 40%;
+  padding: 30px;
+
+
+
+}
+
+.HeadingTitleText {
+  font-weight: 600;
+}
+
+.FilterITem small {
+  margin-left: 10px;
+
+}
+
+.MainTitleBoxB {
+  display: flex;
+  align-items: center;
+}
+
+/* Product grid */
+.ProductGrid {
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+}
+
+.ProductGridItem {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid rgb(237, 232, 232);
+
+}
+
+.ProductItemImage {
+  background-color: #ffffff;
+  min-width: 150px;
+  max-height: 150px;
+  padding: 15px 15px 0px 15px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  overflow: hidden;
+}
+
+.ProductItemTitle {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 500;
+
+
+}
+
+.ProductItemPrice {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 500;
+
+
+}
+
+.ProductItemPrice span {
+  font-size: 15px;
+}
+
+.ProductItemFooter {
+  border-top: 1px dashed rgb(196, 186, 186);
+
+  width: 100%;
+}
+
+.ProductItemFooterA {
+  font-size: 12px;
+}
+
+.Addcartbtn {
+  background-color: #7a99a9;
+  padding: 5px;
+  color: white;
+  text-align: center;
+  border-radius: 7px;
+
+
+}
+
+.FooterMobileBoxCheckout {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 999;
+  transition: 1ms;
+}
+
+.QuickCheckoutBoxA {
+  display: flex;
+  flex-direction: column;
+}
+
+.QuickCheckoutBoxA span {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.QuickCheckoutBoxA small {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.QuickCheckoutBox {
+  background-color: #ffffff22;
+  backdrop-filter: blur(8px);
+  padding: 10px;
+  border-radius: 10px;
+  margin: auto;
+  width: 30%;
+  min-height: 50px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+}
+
+.AddcartbtnGroup {
+  background-color: #faac2a;
+  padding: 5px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.AddcartbtnPlus {
+  margin-top: 5px;
+}
+
+.AddcartbtnMinus {
+  margin-top: 5px;
+}
+
+.AddcartbtnQty {
+  font-weight: bold;
+}
+
+/* Product grid end*/
+
+.SwiperImgae {
+  min-width: 399px;
+
+
+}
+
+.SwiperImgae img {
+  border-radius: 10px;
+  width: 100%;
+}
+
+.FooterMobileMenuBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.FooterMobileMenuBoxItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.FooterMobileMenuBoxItemB {
+  font-size: 12px;
+  font-weight: 500;
+}
+
 .QuesBoxOnlymob {
   display: none;
 }
 
+.UserAvaTarBox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.UserAvaTarBoxCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(239, 232, 232);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.UserAvaTarBoxCircleTextBox {
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.SearchBoxmain {
+  color: #1e304b;
+  display: flex;
+  align-items: center;
+  background-color: #f2f2f2;
+  border-radius: 7px;
+  width: 100%;
+
+
+  cursor: pointer;
+
+}
+
+.SearchBoxmain input {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  outline-width: 0;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+}
+
+.SearchBoxmainB {
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.SearchTopBox {
+  margin: 5px;
+  color: #1e304b;
+  display: flex;
+  align-items: center;
+  background-color: #f2f2f2;
+  border-radius: 7px;
+  width: 400px;
+  margin-left: 30px;
+  padding: 10px;
+  cursor: pointer;
+
+}
+
+.SearchTopBox:hover {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+}
+
+.SearchTopBoxB {
+  margin-top: -5px;
+  margin-left: 10px;
+  color: #86868d;
+}
+
 .CourseItemsTBox {
-  
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px;
   color: black;
   font-weight: 700;
-  
+
 }
-.CourseItemsTBoxA span{
- 
+
+.CourseItemsTBoxA span {
+
   font-weight: 700;
 }
-.ShareiConList{
+
+.ShareiConList {
   height: 35px;
   width: 35px;
   border-radius: 50%;
-  padding:5px;
+  padding: 5px;
   background-color: #eaeff1;
   color: rgb(0, 0, 0);
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
 
 }
 
-.ShareiConList:hover{
-  background-color:#00a6ff;
+.ShareiConList:hover {
+  background-color: #faac2a;
   color: white;
 }
 
@@ -64,7 +478,7 @@
 .TagICTAMAt {
   padding: 5px;
   font-size: 12px;
-  background-color: #00a6ff;
+  background-color: #faac2a;
   color: white;
   border-radius: 5px;
   width: fit-content;
@@ -94,15 +508,18 @@
   border-radius: 10px;
   font-size: 12px;
   font-weight: 500;
-  color: #00a6ff;
+  color: #faac2a;
 }
-.ScoreRemarktag{
+
+.ScoreRemarktag {
   font-weight: 500;
-    color: #00a6ff;
+  color: #faac2a;
 }
+
 .tagItemCorrectText {
   margin-left: 5px;
 }
+
 .tagItemInCorrect {
   padding: 10px 20px 10px 20px;
   display: flex;
@@ -113,9 +530,11 @@
   font-weight: 500;
   color: red;
 }
+
 .tagItemInCorrectText {
   margin-left: 5px;
 }
+
 .NotAt {
   padding: 10px 20px 10px 20px;
   display: flex;
@@ -126,10 +545,14 @@
   font-weight: 500;
   color: rgb(0, 0, 0);
 }
+
 .NotAtText {
   margin-left: 5px;
 }
 
+.SelectedAdd {
+  background-color: red;
+}
 
 .ResultMyAtemptsBox {
   background-color: rgb(255, 255, 255);
@@ -181,7 +604,7 @@
 .MainScorB span {
   font-weight: bold;
   font-size: 35px;
-  color: #00a6ff;
+  color: #faac2a;
 }
 
 .MainScorB small {
@@ -233,7 +656,7 @@
 .IndextItemBox {
   margin: 5px;
   border-radius: 10px;
-  background-color: #00a6ff;
+  background-color: #faac2a;
   padding: 2px;
   color: white;
   width: 25px;
@@ -264,7 +687,7 @@
   background-color: #FEF9E7;
   padding: 2px;
   color: rgb(0, 0, 0);
-  border: 3px solid #00a6ff;
+  border: 3px solid #faac2a;
   width: 25px;
   height: 25px;
   display: flex;
@@ -297,30 +720,37 @@
 }
 
 .CatGridItem {
-  background-color: white;
   display: flex;
   align-items: center;
-  padding: 10px;
-  border: 1px solid #A6D8FA;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .CatGridItem:hover {
-  border-color: black;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 }
 
 .CatGridItemB {
   margin-left: 10px;
 }
 
-.CatGridItemB span{
+.CatGridItemB span {
   font-weight: 600;
 }
 
 .CatGridItemA {
-  width: 50px;
+  background-color: #eeeefc;
+
+  min-width: 100px;
+  padding: 15px 15px 0px 15px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  overflow: hidden;
 }
+
 .CatGridItemhbh {
   width: 20px;
 }
@@ -454,7 +884,7 @@
 
 .Coursebtn {
   padding: 10px;
-  background-color: #00a6ff;
+  background-color: #faac2a;
   border-radius: 5px;
   color: white;
   text-align: center;
@@ -470,7 +900,7 @@
 
 .CoursebtnMob {
   padding: 10px;
-  background-color: #00a6ff;
+  background-color: #faac2a;
   border-radius: 5px;
   color: white;
   text-align: center;
@@ -494,7 +924,7 @@
 
 .PlayBtnQ {
   padding: 10px;
-  background-color: #00a6ff;
+  background-color: #faac2a;
   border-radius: 5px;
   color: white;
   text-align: center;
@@ -505,7 +935,7 @@
 
 .HeroBtn {
   padding: 10px;
-  background-color: #00a6ff;
+  background-color: #faac2a;
   border-radius: 5px;
   color: white;
   text-align: center;
@@ -530,14 +960,14 @@
   display: flex;
   flex-direction: column;
   margin: 10px;
-  /* background: linear-gradient(to right, #00a6ff, #00a6ff); */
+  /* background: linear-gradient(to right, #faac2a, #faac2a); */
   color: rgb(36, 34, 34);
   background-color: white;
   border-radius: 10px;
   border: 1px solid rgb(255, 255, 255);
   width: 200px;
   min-height: 220px;
- 
+
 }
 
 .HeroBoxTwoItem::-webkit-scrollbar {
@@ -587,7 +1017,7 @@
   flex-direction: column;
   align-items: center;
   margin: 10px;
-  /* background: linear-gradient(to right, #00a6ff, #00a6ff); */
+  /* background: linear-gradient(to right, #faac2a, #faac2a); */
   color: rgb(36, 34, 34);
   padding: 20px;
   border-radius: 10px;
@@ -599,6 +1029,10 @@
 
 }
 
+.TrackBtnOrd {
+  width: fit-content;
+}
+
 .gradienttext {
   background: linear-gradient(to right, #d98686, #1100ff);
   -webkit-background-clip: text;
@@ -608,6 +1042,14 @@
 
 .primaryColor {
   color: #00a6ff;
+}
+
+.MainColor {
+  color: #faac2a;
+}
+
+.primaryTextColor {
+  color: #1e304b;
 }
 
 .CheckListIcon {
@@ -1413,11 +1855,11 @@
   align-items: center;
 }
 
-.ComingSoonBox{
+.ComingSoonBox {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   text-align: center;
 
 }
@@ -1549,10 +1991,8 @@
 .LoginFull {
 
   background-image:
-    url('https://aitechnolog.com/examapp/Storage/img/pngtree-background-pattern-with-icon-symbol-picture-image_1154242.jpg');
-  background-position: 'center';
-  background-repeat: 'repeat';
-  background-size: contain;
+    url('/ecoicons.png');
+
 
   overflow: hidden;
 }
@@ -1568,14 +2008,15 @@
 .LoginBoxItem {
   margin: auto;
   background-color: rgba(255, 255, 255, 0.784);
-  width: 80%;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  border: 1px solid rgb(236, 225, 225);
   padding: 0px 30px 30px 30px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding: 5px;
+  padding: 50px;
+  width: 60%;
 
 }
 
@@ -1605,12 +2046,463 @@
   width: 40%;
 }
 
+.LoteeLogin {
+  width: 200px;
+}
+
+.OrderDoneBox {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.OrderDoneBox span {
+  font-weight: 600;
+}
+
 .regdoneimg img {
   width: 100%;
 }
 
 .logingif img {
   width: 100%;
+}
+
+.MainTitleBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.MainTitleBoxA {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.MainTitleBoxAtext {
+  margin-left: 10px;
+}
+
+/* Cart */
+.OnlyDesktopCheckoutBtn {
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
+}
+
+.totalFinalDiscount {
+  font-weight: 600;
+
+  color: #17b31b;
+}
+
+.totalFinalDiscountBox {
+
+  background-image: url('/6ob.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 10px;
+
+}
+
+.checkputamt {
+  margin-left: 8px;
+  color: rgb(195, 255, 0);
+}
+
+.CheckoutMobileBoxFooter {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  overflow: hidden;
+  background-color: #ffffff22;
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgb(243, 237, 237);
+  z-index: 999;
+  padding: 10px;
+}
+
+.MobileCatH {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.MobileCatHA {
+  font-weight: 500;
+}
+
+.MainTitleBoxCart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.DshadedBorderDevider {
+  min-height: 10x;
+  border: 1px dashed rgb(215, 204, 204);
+
+}
+
+.MainTitleBoxCartA {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.MainTitleBoxCartAtext {
+  margin-left: 10px;
+}
+
+.BagFlexBox {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  overflow-y: auto;
+
+
+}
+
+.TotalBox {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.BagFlexBoxA {
+  width: 60%;
+  padding: 20px;
+
+
+
+}
+
+.CartitemBox {
+
+  height: 590px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.BagFlexBoxBContainer {
+  min-height: 300px;
+}
+
+.BagFlexBoxB {
+  margin-top: 100px;
+  width: 40%;
+
+  padding: 10px;
+
+
+}
+
+.discountimg {
+  width: 25px;
+  height: 25px;
+  animation: rotate 4s linear infinite;
+  /* Adjust the duration and timing function as needed */
+  transform-origin: center;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.BagFlexBoxBCupon {
+  background-color: #ffffff;
+  padding: 20px;
+  height: 100px;
+  border: 1px solid rgb(223, 207, 207);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+
+
+}
+
+.BagFlexBoxBCuponA {
+  display: flex;
+
+
+}
+
+.discountText {
+  margin-left: 10px;
+}
+
+.discountText span {
+  font-weight: 600;
+}
+
+.discountText small {
+  color: rgb(50, 138, 129);
+}
+
+.AddressNotSelect {
+  margin: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(218, 204, 218);
+
+  min-height: 100px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.AddressSelect {
+  margin: 10px;
+  border-radius: 10px;
+  min-height: 100px;
+  border: 1px solid #00a6ff;
+  background-color: #00a6ff;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+
+}
+
+.AddressHeder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.AddressHederA {
+  width: 70%;
+}
+
+.AddressHederADatabox {
+  display: flex;
+}
+
+.AddressHederADataboxB {
+  margin-left: 10px;
+  width: 90%;
+}
+
+.AddressHederADataboxBName {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.AddressHederADataboxBData span {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.CartListItem {
+  cursor: pointer;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  border: 1px solid rgb(218, 204, 218);
+  padding: 10px;
+
+}
+
+
+.CartListItemBox {
+  padding: 10px;
+}
+
+.CartListItemA {
+  width: 80%;
+  display: flex;
+  overflow: hidden;
+}
+
+.CartListItemB {
+  width: 20%;
+  overflow: hidden;
+}
+
+.CartListItemAImg {
+  border: 1px solid rgb(234, 227, 227);
+  border-radius: 5px;
+  width: 100px;
+  padding: 10px;
+}
+
+.CartListItemContent {
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.CartListItemContentTitle {
+  font-weight: 600;
+}
+
+.CartListItemContentPrice span {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.Crtpagetags span {
+  font-weight: 600;
+  font-size: 13px;
+  color: #17b31b;
+}
+
+.OtherDataBoxCart {
+  font-size: 12px;
+}
+
+.PaymentBoxItem {
+  background-color: #ffffff;
+  padding: 20px;
+  min-height: 80px;
+  border: 1px solid rgb(223, 207, 207);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 20px;
+}
+
+.PaymentBoxItemBImg {
+  width: 50px;
+}
+
+.PaymentBoxItemA {
+  display: flex;
+  width: 80%;
+}
+
+.PaymentBoxItemB {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.FinalAddressText {
+
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  border: 1px dashed rgb(223, 207, 207);
+  color: black;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+
+}
+
+.DeliveryTime {
+  font-weight: bold;
+  color: rgb(161, 155, 90);
+}
+
+.PaymentBoxItemB span {
+  font-weight: 600;
+}
+
+.CartSummybox {
+  background-color: #ffffff;
+  padding: 20px;
+  min-height: 200px;
+  border: 1px solid rgb(223, 207, 207);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+
+
+}
+
+.ClearCartBox {
+  padding: 20px;
+
+}
+
+.CartSummyboxA {
+  width: 100%;
+}
+
+.amttext {
+  font-weight: 600;
+}
+
+.amttextSub {
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.CartSummyboxListBoxItem {
+  margin-top: 10px;
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.InputBoxData {
+  margin-top: 15px;
+
+}
+
+.InputBoxData label {
+  font-weight: 600;
+
+}
+
+.InputBoxData input {
+  width: 100%;
+  padding: 10px;
+
+}
+
+.InputBoxData select {
+  width: 100%;
+  padding: 10px;
+
+}
+
+.InputGroupBoxData {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Cart */
+.EmptyCartBox {
+  width: 50%;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.EmptyCartBoxText {
+  font-size: 13px;
+  margin: 10px;
+  font-weight: 600;
 }
 
 .CheckoutContainer {
@@ -1632,6 +2524,67 @@
   width: 50%;
 }
 
+.container50 {
+  margin: auto;
+  margin-top: 0;
+  width: 50%;
+
+  overflow: hidden;
+}
+
+.ProfileMainBox {
+  margin-top: 10px;
+}
+
+.ProfileMainBoxTop {
+  display: flex;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgb(255, 241, 210);
+
+
+}
+
+.UserProfilemenuBoxItem {
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid rgb(197, 238, 245);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.UserProfilemenuBoxItem:hover {
+  background-color: #cbdaa4;
+
+}
+
+.UserProfilemenuBoxItemA {
+  display: flex;
+  align-items: center;
+
+}
+
+.UserProfilemenuBoxItemAText {
+  font-weight: 600;
+}
+
+.NameBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.NameBox span {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.ProfileMainBoxToB {
+  margin-left: 10px;
+}
+
 .container {
   margin: auto;
   margin-top: 0;
@@ -1640,14 +2593,31 @@
   overflow: hidden;
 }
 
+.CatListItemBoxText {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+
+}
+
+.ContainerMainBoxFull {
+
+  margin-top: 80px;
+  min-height: 100vh;
+  padding: 5px;
+
+
+}
+
 .ContainerMain {
   margin: auto;
-  margin-top: 100px;
   width: 80%;
   color: #3c4852;
   overflow: hidden;
-  min-height: 100vh;
+
 }
+
 
 .containerModal {
   width: 70%;
@@ -1742,7 +2712,7 @@
 
 .EnrollBtn {
 
-  background-color: #00a6ff;
+  background-color: #faac2a;
   color: white;
   padding: 5px;
   padding-left: 10px;
@@ -1845,11 +2815,13 @@
 }
 
 
+
+
 .CatGrid {
   margin: 0 auto;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 
 }
 
@@ -2232,6 +3204,12 @@
   background-color: #f4f7f7;
 }
 
+.deviderCart {
+
+  height: 2px;
+  background-color: #f4f7f7;
+}
+
 .url {
   cursor: pointer;
   color: blueviolet;
@@ -2287,9 +3265,13 @@
   cursor: pointer;
 
 }
-.logomainDBimg{
-width: 120px;
+
+
+
+.logomainDBimg {
+  width: 120px;
 }
+
 .logomainDB {
   width: 250px;
   display: flex;
@@ -2300,7 +3282,8 @@ width: 120px;
   cursor: pointer;
 
 }
-.logomainDB span{
+
+.logomainDB span {
   border-left: 1px solid white;
   margin-left: 10px;
   font-weight: 500;
@@ -2308,7 +3291,8 @@ width: 120px;
   color: white;
 
 }
-.logomainDBimgMob img{
+
+.logomainDBimgMob img {
   width: 100%;
 }
 
@@ -2529,6 +3513,28 @@ width: 120px;
   width: 100%;
 }
 
+.FooterMobileBox {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  overflow: hidden;
+  /* background-color: #262261; */
+  background-color: white;
+  border-bottom: 1px solid rgb(243, 237, 237);
+  z-index: 999;
+}
+
+.TopCatMenu {
+  width: 100%;
+  position: fixed;
+  top: 150;
+  overflow: hidden;
+  /* background-color: #262261; */
+  background-color: white;
+  border-bottom: 1px solid rgb(243, 237, 237);
+  z-index: 999;
+}
+
 .navbarBox {
   width: 100%;
   position: fixed;
@@ -2540,15 +3546,26 @@ width: 120px;
   z-index: 999;
 }
 
-.navbarBoxPGplay {
+.SearchnavbarBox {
   width: 100%;
-  position: sticky;
+  position: fixed;
   top: 0;
   overflow: hidden;
-
+  /* background-color: #262261; */
   background-color: white;
   border-bottom: 1px solid rgb(243, 237, 237);
   z-index: 999;
+}
+
+.SearchBox {
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
 }
 
 .QuesNoTetxTag {
@@ -2696,7 +3713,7 @@ width: 120px;
   justify-content: center;
   margin: 5px;
   border-radius: 5px;
-  background-color: #00a6ff;
+  background-color: #faac2a;
   color: white;
   padding: 5px;
   min-width: 50px;
@@ -2822,7 +3839,7 @@ width: 120px;
   justify-content: center;
   cursor: pointer;
   padding: 5px 20px 0px 20px;
-  background: linear-gradient(99.02deg, #00a6ff -15.78%, #00a6ff 108.25%);
+  background: linear-gradient(99.02deg, #faac2a -15.78%, #faac2a 108.25%);
   box-shadow: 3.30459px 4.13074px 10.7399px rgba(254, 119, 4, 0.25);
   border-radius: 4.13074px;
   transition: all 0.4s ease-in-out;
@@ -2868,6 +3885,17 @@ width: 120px;
   padding: 10px;
 }
 
+.ViewPbtn {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+
+}
+
+.UserAvaTarBoxCircleTextBox span {
+  font-weight: 500;
+}
+
 .ApplyEducatorLight small {
   margin-left: 5px;
   margin-top: -5px;
@@ -2881,8 +3909,18 @@ width: 120px;
   color: rgb(0, 0, 0);
 }
 
+.CartIconBox {
+  color: #1e304b;
+  margin-left: 5px;
+}
+
 .MainMenu li:hover {
   color: #ff0000;
+}
+
+.loginbtnTop:hover {
+  background-color: #faac2a;
+  color: #000000;
 }
 
 .loginbtnTop {
@@ -2892,7 +3930,7 @@ width: 120px;
   justify-content: center;
   cursor: pointer;
   padding: 5px 20px 0px 20px;
- background-color: #00a6ff;
+  background-color: #1e304b;
   border-radius: 5px;
 
   color: #ffffff;
@@ -2975,10 +4013,6 @@ width: 120px;
 }
 
 
-.Contact_icon {
- 
-
-}
 
 .Contact_number_Text {
   color: #f1582e;
@@ -3200,7 +4234,7 @@ width: 120px;
 
 .CourseItems {
   cursor: pointer;
- overflow: hidden;
+  overflow: hidden;
   color: #3c4852;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   background-color: white;
@@ -3507,7 +4541,7 @@ width: 120px;
 .FooterBox {
   background-color: #ffffff9d;
   min-height: 300px;
-  width: 100%;
+  width: 80%;
   margin: auto;
   padding: 10px;
   color: rgb(0, 0, 0);
@@ -4541,7 +5575,7 @@ width: 120px;
 
   .CatGrid {
 
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
 
   }
 
@@ -4606,19 +5640,22 @@ width: 120px;
   }
 
   .LoginBoxItem {
-    margin: 0;
-    background-color: transparent;
-
+    border-radius: 0;
+    border: none;
     box-shadow: none;
+    width: 100%;
+    padding: 10px;
+    background: transparent;
 
 
   }
 
   .logomainBox {
     padding: 5px;
-    margin-top: -150px;
+    margin-top: -50px;
     background-color: rgb(255, 255, 255);
     position: relative;
+    border-radius: 10px;
   }
 
   .regBox {
@@ -4859,7 +5896,7 @@ width: 120px;
     justify-content: center;
     cursor: pointer;
     padding: 5px 20px 0px 20px;
-    background: linear-gradient(99.02deg, #ff2121 -15.78%, #00a6ff 108.25%);
+    background: linear-gradient(99.02deg, #ff2121 -15.78%, #faac2a 108.25%);
     box-shadow: 3.30459px 4.13074px 10.7399px rgba(254, 119, 4, 0.25);
     border-radius: 4.13074px;
     transition: all 0.4s ease-in-out;
@@ -4880,7 +5917,7 @@ width: 120px;
     justify-content: center;
     cursor: pointer;
     padding: 5px 20px 0px 20px;
-    background: linear-gradient(99.02deg, #ff2121 -15.78%, #00a6ff 108.25%);
+    background: linear-gradient(99.02deg, #ff2121 -15.78%, #faac2a 108.25%);
     box-shadow: 3.30459px 4.13074px 10.7399px rgba(254, 119, 4, 0.25);
     border-radius: 4.13074px;
     transition: all 0.4s ease-in-out;
@@ -5163,17 +6200,214 @@ width: 120px;
     font-size: 10px;
 
   }
-  .ContainerMain{
+
+  .ContainerMain {
     width: 100%;
     padding: 10px;
   }
-  .ATScoreBox{
+
+  .ATScoreBox {
     width: 100%;
     padding: 10px;
   }
-    .ResultMyAtemptsBox {
-     
-      padding: 5px;
-     
-    }
+
+  .ResultMyAtemptsBox {
+
+    padding: 5px;
+
+  }
+
+  .UserAvaTarBox {
+    margin-left: 0;
+  }
+
+  .ContainerMainBoxFull {
+
+    margin-top: 70px;
+
+  }
+
+  .SwiperImgae {
+    min-width: 100%;
+    overflow: hidden;
+
+  }
+
+  .SwiperImgae img {
+    border-radius: 0px;
+    width: 100%;
+
+  }
+
+  .ContainerMainBox {
+    margin: auto;
+    margin-top: 70px;
+    width: 100%;
+    color: #3c4852;
+    overflow: hidden;
+
+  }
+
+
+  .CatGridItem {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .CatGridItemA {
+    background-color: #e5f3f3;
+    min-width: 80px;
+    padding: 15px 15px 0px 15px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    overflow: hidden;
+  }
+
+  .CatListItemBoxText {
+    margin-top: 10px;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+
+  }
+
+
+
+  .MainTitleBoxA {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .MainTitleBoxAtext {
+    margin-left: 10px;
+  }
+
+  .QuickCheckoutBox {
+
+    margin: auto;
+    width: 95%;
+    margin-bottom: 80px;
+
+  }
+
+  .BagFlexBox {
+    width: 100%;
+    flex-wrap: wrap;
+
+
+  }
+
+  .BagFlexBoxA {
+    width: 100%;
+    padding: 0;
+  }
+
+  .BagFlexBoxB {
+    width: 100%;
+    margin-top: 0px;
+  }
+
+  .CartitemBox {
+    margin-top: 0px;
+    height: 100%;
+
+  }
+
+  .CartListItemBox {
+    padding: 0px;
+  }
+
+  .CartListItemAImg {
+
+    width: 50px;
+    padding: 1px;
+  }
+
+  .CartListItemA {
+    width: 70%;
+
+  }
+
+  .CartListItemB {
+    width: 30%;
+
+  }
+
+  .InputGroupBoxData {
+
+    flex-direction: column;
+  }
+
+  .InputBoxData {
+    min-width: 100%;
+  }
+
+  .AddressHeder {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .AddressHederA {
+    width: 100%;
+  }
+
+  .AddressHederB {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .OrderStatusBox {
+    margin: auto;
+    width: 100%;
+    flex-wrap: wrap-reverse;
+
+  }
+
+  .OrderStatusBoxA {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .OrderStatusBoxB {
+    width: 100%;
+  }
+
+  .OrderStatusBoxABox {
+    height: auto;
+
+
+  }
+
+  .OrderStatusTextItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: none;
+
+  }
+
+  .container50 {
+
+    width: 100%;
+
+
+  }
+
+  .TrackBtnOrd {
+    width: 100%;
+  }
+
+  .SearchBox {
+    width: 100%;
+  }
 }

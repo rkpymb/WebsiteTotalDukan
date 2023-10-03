@@ -10,14 +10,16 @@ import { FiChevronRight } from 'react-icons/fi';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import { BASE_URL, AppName, CryptoJSKEY } from '../Data/config'
-import * as animationData from '../Data/Lottie/87666-female-character-walking.json'
+import * as animationData from '../Data/Lottie/animation_lmym9hei.json'
 import * as animationData2 from '../Data/Lottie/105173-verification-code-otp.json'
 import * as animationData3 from '../Data/Lottie/110817-account-created.json'
 import CryptoJS from "crypto-js";
 
+import LoadingButton from '@mui/lab/LoadingButton';
 const Login = () => {
     const Contextdata = useContext(CheckloginContext)
     const router = useRouter()
+    const [loading, setLoading] = React.useState(false);
     const [usermobile, setMob] = useState('');
     const [sot, setSot] = useState('');
     const [isalert, setIsalert] = useState(false);
@@ -66,7 +68,7 @@ const Login = () => {
     // On submit mobile
     const handleSubmit = async () => {
         if (usermobile.length == 10) {
-        
+            setLoading(true)
             const sendUM = { usermobile }
             const data = await fetch("api/V2/auth/ProcessMobile", {
                 method: "POST",
@@ -78,7 +80,7 @@ const Login = () => {
                 return a.json();
             })
                 .then((parsed) => {
-                 
+                    setLoading(false)
                     decryptData(parsed.RetD)
                     
                 })
@@ -99,6 +101,7 @@ const Login = () => {
             setUserType(dataNew.type)
             setMobilebox(false)
             setOtpbox(true)
+            
         } else {
             alert('Something Went Wrong')
         }
@@ -117,7 +120,7 @@ const Login = () => {
     
     const verifyOTPBTN = async () => {
         if (sot !== '') {
-
+            setLoading(true)
             const sendUM = { usermobile: usermobile, EnterText: sot }
             const data = await fetch("api/V2/auth/CheckMobileOTP", {
                 method: "POST",
@@ -131,17 +134,19 @@ const Login = () => {
 
             })
                 .then((parsedFinal) => {
-                
-                    console.log(parsedFinal)
-                    if (parsedFinal.ReqS == true) {
-                        const u_type = UserType;
-                    
-                        console.log(u_type)
-                        localStorage.setItem('Token', parsedFinal.ReqD.token);
-                        // router.push('/')
-                        router.back();
+                    if (parsedFinal.ReqD.Ls == true) {
+                        setTimeout(function () {
+                            const u_type = UserType;
+
+                            console.log(u_type)
+                            localStorage.setItem('Token', parsedFinal.ReqD.token);
+                            
+                            // router.push('/')
+                            router.back();
+                        }, 2000);
+                       
                     } else {
-                        
+                        setLoading(false)
                         alert('Invalid OTP')
                     }
                    
@@ -179,18 +184,22 @@ const Login = () => {
             <div className={Mstyles.LoginFull}>
                 <div className={Mstyles.LoginBox}>
                     {/* mobile number box */}
+                   
                     {mobilebox && (
                         <div className={Mstyles.LoginBoxItem}>
+                            
                             <div>
                                 <Lottie options={defaultOptions}
-                                    width='100%'
-                                    height={400}
+                                    height={300}
+                                    width={300}
+                                    
                                     isStopped={false}
                                     isPaused={false} />
                             </div>
                             <div className={Mstyles.logomainBox}>
+                                <div style={{ height: '10px' }}> </div>
                                 <div className={Mstyles.logomain}>
-                                    <img src='/logo/logomain.png' alt='logo' />
+                                    <img src='/tolodukanLogoWeb.svg' alt='logo' />
                                 </div>
                                 <div><h3>Log in to your Account </h3>
                                     <small>Enter your Phone number to continue OTP will be sent on this number for verfification</small>
@@ -207,12 +216,19 @@ const Login = () => {
                                        
                                     </Stack>
                                 )}
-                                <div style={{ height: '0px' }}> </div>
-                                <div className={Mstyles.Btn_icon} onClick={handleSubmit}>
-                                    <small>Get OTP</small>
-                                    <span><FiChevronRight /></span>
-                                </div>
-
+                                <div style={{ height: '10px' }}> </div>
+                               
+                                <LoadingButton
+                                    fullWidth
+                                    onClick={handleSubmit}
+                                    endIcon={<FiChevronRight />}
+                                    loading={loading}
+                                    loadingPosition="end"
+                                    variant="contained"
+                                >
+                                    <span>Get OTP</span>
+                                </LoadingButton>
+                                <div style={{ height: '10px' }}> </div>
 
                                 <div style={{ height: '5px' }}> </div>
                                 <small>By signing up, you agree to our <span className={Mstyles.url}>Terms of use</span> and <span className={Mstyles.url}>Privacy Policy</span></small>
@@ -245,13 +261,19 @@ const Login = () => {
                                     </Stack>
                                 )}
                                 <div style={{ height: '20px' }}> </div>
-                                <div className={Mstyles.Btn_icon} onClick={verifyOTPBTN} >
-                                    <small>Verify OTP</small>
-                                    <span><FiChevronRight /></span>
-                                </div>
-
                                 
-                                <div style={{ height: '5px' }}> </div>
+                                <LoadingButton
+                                    fullWidth
+                                    onClick={verifyOTPBTN}
+                                    endIcon={<FiChevronRight />}
+                                    loading={loading}
+                                    loadingPosition="end"
+                                    variant="contained"
+                                >
+                                    <span>Verify OTP</span>
+                                </LoadingButton>
+                                
+                                <div style={{ height: '10px' }}> </div>
 
                             </div>
                         </div>

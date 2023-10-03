@@ -37,7 +37,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-lottie": "^1.2.3",
-    "swiper": "^10.2.0"
+    "swiper": "8"
   },
   "scripts": {
     "dev": "next",

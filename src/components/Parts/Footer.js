@@ -12,7 +12,7 @@ const Footer = () => {
           <div className={styles.dataspacer}> </div>
           <Link href='/' style={{ textDecoration: 'none' }}>
             <div className={styles.logomain}>
-              <img src='/logo/logomain.png' alt='logo' className={styles.NavLogo} />
+              <img src='/tolodukanLogoWeb.svg' alt='logo' className={styles.NavLogo} />
             </div>
           </Link>
           <p>{AppName} {ShortAbout}</p>
@@ -61,23 +61,21 @@ const Footer = () => {
          
         </div>
         <div className={styles.FooterBox_menu}>
-          <h3>Login Links</h3>
+          <h3>User Links</h3>
           
-          <Link href='/Login' style={{ textDecoration: 'none',color:'white' }}>
-            <li>Student Login </li>
+          <Link href='/Profile' style={{ textDecoration: 'none',color:'white' }}>
+            <li>My Profile </li>
           </Link>
-          <Link href='/dashboards/main' style={{ textDecoration: 'none', color: 'white' }}>
-            <li>Student's Dashboard </li>
+          <Link href='/bag' style={{ textDecoration: 'none',color:'white' }}>
+            <li>My Bag </li>
           </Link>
-          <Link href='https://edu.supermarks.in/' style={{ textDecoration: 'none', color: 'white' }}>
-            <li>Educator's Dashboard</li>
+          <Link href='/myorders' style={{ textDecoration: 'none', color: 'white' }}>
+            <li>My Orders </li>
           </Link>
-          <Link href='https://edu.supermarks.in/Login' style={{ textDecoration: 'none', color: 'white' }}>
-            <li>Educator Login </li>
+          <Link href='/myaddress' style={{ textDecoration: 'none', color: 'white' }}>
+            <li>My Address</li>
           </Link>
-          <Link href='https://edu.supermarks.in/Get_Started' style={{ textDecoration: 'none',color:'white' }}>
-            <li>Educator Registration</li>
-          </Link>
+          
           
          
         

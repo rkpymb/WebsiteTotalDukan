@@ -74,7 +74,7 @@ function RecentOrders() {
                         <div className={Mstyles.CatGridItem}>
                             <div className={Mstyles.CatGridItemhbh}>
                                 <Image 
-                                    src={`${DO_SPACES_URL}${DO_SPACES_FOLDER}/${item.image}`}
+                                    src={`/groc.png`}
                                     alt="image"
                                     layout="responsive"
                                     placeholder='blur'
