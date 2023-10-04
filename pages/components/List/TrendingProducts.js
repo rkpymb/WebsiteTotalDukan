@@ -5,7 +5,7 @@ import CheckloginContext from '../../../context/auth/CheckloginContext'
 import Link from 'next/link';
 
 import Image from 'next/image';
-
+import { FiChevronRight } from "react-icons/fi";
 import Mstyles from '../../../Styles/home.module.css';
 import { DO_SPACES_URL, DO_SPACES_FOLDER } from '../../../Data/config'
 import ProductGridlistLoader from '/src/components/Parts/ProductGridlistLoader'
@@ -100,40 +100,16 @@ function RecentOrders() {
                         </div>
                     </div>
                     <div className={Mstyles.MainTitleBoxB}>
-                        <div className={Mstyles.OnlyDesktop}>
-                            <div style={{ margin: 10 }}>
-                                <span>{FilterText}</span>
-                            </div>
-                        </div>
-                        <Button variant="contained" endIcon={<LuFilter />}
-                            id="fade-button"
-                            aria-controls={open ? 'fade-menu' : undefined}
-                            aria-haspopup="true"
-                            aria-expanded={open ? 'true' : undefined}
-                            onClick={handleClick}
-                        >
-                            Filter
-                        </Button>
-                        <Menu
-                            id="fade-menu"
-                            MenuListProps={{
-                                'aria-labelledby': 'fade-button',
-                            }}
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleClose}
-                            TransitionComponent={Fade}
-                        >
-                            <MenuItem onClick={sortLowToHigh}>
-                                
-                                <small>Low to High Price</small>
-                            </MenuItem>
-                            <MenuItem onClick={sortHighToLow}>
-                                <small>High to Low Price</small>
-                            </MenuItem>
-                           
-                           
-                        </Menu>
+                       
+                        <Link href={`/Bestsallers`}>
+                            <Button variant="outlined" endIcon={<FiChevronRight />}
+
+                                size='small'
+                            >
+                                see all
+                            </Button>
+                        </Link>
+
                     </div>
 
 

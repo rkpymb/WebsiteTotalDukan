@@ -40,6 +40,7 @@
   font-size: 13px;
   font-weight: 500;
 }
+
 .FilterITem {
   display: flex;
   align-items: center;
@@ -167,8 +168,8 @@
 .ProductGrid {
   margin: 0 auto;
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 
 }
 
@@ -180,6 +181,7 @@
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
+  background-color: white;
   border: 1px solid rgb(237, 232, 232);
 
 }
@@ -227,9 +229,9 @@
 }
 
 .Addcartbtn {
-  background-color: #7a99a9;
+  border:1px solid #5dd37c;
   padding: 5px;
-  color: white;
+  color: rgb(0, 0, 0);
   text-align: center;
   border-radius: 7px;
 
@@ -721,16 +723,18 @@
 
 .CatGridItem {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  justify-content: center;
-  padding: 5px;
+  align-items: center;
+  padding: 10px;
   border-radius: 5px;
   cursor: pointer;
+  background-color:#feffed;
+  border: 1px solid rgb(237, 229, 229);
+  
 }
 
 .CatGridItem:hover {
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  border: 1px solid rgb(210, 191, 191);
 }
 
 .CatGridItemB {
@@ -742,13 +746,11 @@
 }
 
 .CatGridItemA {
-  background-color: #eeeefc;
-
-  min-width: 100px;
-  padding: 15px 15px 0px 15px;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  width: 60px;
+  height: 60px;
   overflow: hidden;
+  object-fit: cover;
+
 }
 
 .CatGridItemhbh {
@@ -2610,6 +2612,22 @@
 
 }
 
+.ContainerMainBoxFullindex {
+
+  margin-top: 80px;
+  min-height: 100vh;
+ 
+
+
+}
+.ContainerFullindex {
+padding: 5px;
+background-color: #f7f7fa;
+ 
+
+
+}
+
 .ContainerMain {
   margin: auto;
   width: 80%;
@@ -2821,7 +2839,7 @@
   margin: 0 auto;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
 }
 
@@ -5575,7 +5593,7 @@
 
   .CatGrid {
 
-    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 
   }
 
@@ -6258,14 +6276,14 @@
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
+    
   }
 
   .CatGridItemA {
-    background-color: #e5f3f3;
-    min-width: 80px;
-    padding: 15px 15px 0px 15px;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    object-fit: cover;
     overflow: hidden;
   }
 
@@ -6410,4 +6428,12 @@
   .SearchBox {
     width: 100%;
   }
+
+    .ProductGrid {
+      margin: 0 auto;
+      display: grid;
+      gap: 0.4rem;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  
+    }
 }

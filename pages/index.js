@@ -19,7 +19,9 @@ import ProcedToCheckout from '../src/components/Parts/ProcedToCheckout'
 import HomeSliders from '../src/components/Parts/Sliders/HomeSliders'
 import CatlistGrid from './components/List/CatlistGrid'
 import TopCatMenu from '../src/components/Parts/TopCatMenu'
+import SecondSliderlist from './components/List/SecondSliderlist'
 import TrendingProducts from './components/List/TrendingProducts'
+import Trendingbycat from './components/List/Trendingbycat'
 
 import Footer from '../src/components/Parts/Footer'
 import { LuLayoutGrid, LuLayoutList } from "react-icons/lu";
@@ -81,7 +83,8 @@ function Overview() {
       
       {!Loading &&
         <div>
-          <div className={Mstyles.ContainerMainBoxFull}>
+          
+          <div className={Mstyles.ContainerMainBoxFullindex}>
             <HomeSliders />
             <div className={Mstyles.ContainerMain}>
               <div className={Mstyles.OnlyDesktop}>
@@ -92,9 +95,29 @@ function Overview() {
                 <div style={{ minHeight: '30px' }}></div>
               </div>
             </div>
-            <div className={Mstyles.ContainerMain}>
-              <TrendingProducts />
+           
+            <div className={Mstyles.ContainerFullindex}>
+              <div style={{ minHeight: '30px' }}></div>
+              <div className={Mstyles.ContainerMain}>
+             
+                <TrendingProducts />
+              </div>
+              <div style={{ minHeight: '30px' }}></div>
             </div>
+            <div className={Mstyles.ContainerMain}>
+              <div style={{ minHeight: '30px' }}></div>
+              <SecondSliderlist />
+              <div style={{ minHeight: '30px' }}></div>
+            </div>
+            <div className={Mstyles.ContainerFullindex}>
+              <div style={{ minHeight: '30px' }}></div>
+              <div className={Mstyles.ContainerMain}>
+             
+                <Trendingbycat />
+              </div>
+              <div style={{ minHeight: '30px' }}></div>
+            </div>
+            
           </div>         
           <div className={Mstyles.containerFull}>
             <div className={Mstyles.OnlyDesktop}>

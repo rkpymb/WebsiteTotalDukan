@@ -5,7 +5,7 @@ let key = crypto.createHash('sha256').update(String(secret)).digest('base64').su
 
 export const BASE_URL = 'https://server.toladukan.com/';
 export const DO_SPACES_URL = 'https://fmenew.sgp1.cdn.digitaloceanspaces.com/';
-export const DO_SPACES_FOLDER = 'Supermarks/content'
+export const DO_SPACES_FOLDER = 'TolaDukan/Content'
 export const API_URL = 'https://consultancy.itechpandas.com/';
 export const AppName = 'Toladukan';
 export const AppDesc = 'Innovative Best Education for a Smarter Tomorrow : Best Courses in india, Exam Ready Online Courses';
