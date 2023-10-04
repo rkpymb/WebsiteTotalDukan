@@ -11,7 +11,7 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import CheckloginStates from '../context/auth/CheckloginStates'
 const clientSideEmotionCache = createEmotionCache();
-import '../styles/globals.css'
+import '../Styles/globals.css'
 function TokyoApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const getLayout = Component.getLayout ?? ((page) => page);
