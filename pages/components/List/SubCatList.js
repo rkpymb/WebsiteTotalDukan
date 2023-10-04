@@ -48,47 +48,28 @@ function RecentOrders(props) {
 
     return (<>
         {!isLoading &&
-            <div className={Mstyles.CatGrid}>
+            <div className={Mstyles.SubCatGrid}>
 
                 {Retdata.map((item) => {
                     return <Link href={`/Category/Item/${item.slug}`} key={item.id} style={{ textDecoration: 'none' }}>
-                        <div className={Mstyles.CatGridItem}>
-                            <div className={Mstyles.CatGridItemA}>
-                                {/* <Image 
+                        <div className={Mstyles.SubCatGridItem}>
+                            <div className={Mstyles.SubCatGridItemA}>
+                                <Image 
                                     src={`${DO_SPACES_URL}${DO_SPACES_FOLDER}/${item.image}`}
                                     alt="image"
                                     layout="responsive"
                                     placeholder='blur'
-                                    width={50}
-                                    height={50}
-                                    quality={100}
-                                    blurDataURL={blurredImageData}
-
-                                /> */}
-                                <Image
-                                    src={`/groc.png`}
-                                    alt="image"
-                                    layout="responsive"
-                                    placeholder='blur'
-                                    width={50}
-                                    height={50}
+                                    width={45}
+                                    height={45}
                                     quality={100}
                                     blurDataURL={blurredImageData}
 
                                 />
+                                
                             </div>
-
-                            <div div className={Mstyles.OnlyDesktop}>
-                                <div div className={Mstyles.CatListItemBoxText}>
-                                    <span>{item.name.slice(0, 30) + '...'}</span>
-                                </div>
+                            <div div className={Mstyles.SubCatListItemBoxText}>
+                                <span>{item.name.slice(0, 25)}</span>
                             </div>
-                            <div div className={Mstyles.OnlyMobile}>
-                                <div div className={Mstyles.CatListItemBoxText}>
-                                    <span>{item.name.slice(0, 20) + '...'}</span>
-                                </div>
-                            </div>
-
 
 
 

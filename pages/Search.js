@@ -25,6 +25,7 @@ import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 import Footer from '../src/components/Parts/Footer'
 import { LuLayoutGrid, LuLayoutList } from "react-icons/lu";
+import { DO_SPACES_URL, DO_SPACES_FOLDER } from '../Data/config'
 import ProcedToCheckout from '../src/components/Parts/ProcedToCheckout'
 import { useRouter, useParams } from 'next/router'
 const HeaderWrapper = styled(Card)(
@@ -132,7 +133,7 @@ function Overview() {
 
             />
 
-            <IconButton aria-label="cart" onClick={() => router.back()}>
+            <IconButton aria-label="cart">
               <StyledBadge color="secondary" >
                 <LuSearch />
               </StyledBadge>
@@ -165,12 +166,13 @@ function Overview() {
               {!Loading && 
                 
                 <div className={Mstyles.ProductGrid}>
+
                   {Results.map((item, index) => {
                     return <div className={Mstyles.ProductGridItem}>
                       <Link href={`/Category/${item.slug}`} key={item.id} style={{ textDecoration: 'none' }}>
                         <div className={Mstyles.ProductItemImage}>
                           <Image
-                            src={`/608a.png`}
+                            src={`${DO_SPACES_URL}${DO_SPACES_FOLDER}/${item.img}`}
                             alt="image"
                             layout="responsive"
                             placeholder='blur'

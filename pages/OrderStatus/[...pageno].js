@@ -7,6 +7,8 @@ import {
     Button,
     styled
 } from '@mui/material';
+
+import { DO_SPACES_URL, DO_SPACES_FOLDER } from '../../Data/config'
 import BaseLayout from 'src/layouts/BaseLayout';
 import Mstyles from '../../Styles/home.module.css'
 import CircularProgress from '@mui/material/CircularProgress';
@@ -605,7 +607,7 @@ function Overview({ OrderID }) {
                                                 <Link href={`/`} style={{ textDecoration: 'none' }}>
                                                     <div className={Mstyles.CartListItemAImg}>
                                                         <Image
-                                                            src={`/608a.png`}
+                                                            src={`${DO_SPACES_URL}${DO_SPACES_FOLDER}/${OrderItems[ItemKey].itemImg}`}
                                                             alt="image"
                                                             layout="responsive"
                                                             placeholder='blur'

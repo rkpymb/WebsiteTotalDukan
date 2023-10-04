@@ -11,6 +11,45 @@
 
 }
 
+.SubCatGrid {
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+}
+
+.SubCatGridItem {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #EBDEF0;
+  border: 1px solid rgb(237, 229, 229);
+
+}
+
+.SubCatListItemBoxText {
+  font-weight: 600;
+  margin-left: 10px;
+
+}
+
+.SubCatGridItemA {
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 10px;
+  min-width: 70px;
+  min-height: 70px;
+  overflow: hidden;
+  object-fit: cover;
+ 
+}
+
+
+
+
 .Counterimage {
   width: 50px;
   height: 50px;
@@ -229,7 +268,7 @@
 }
 
 .Addcartbtn {
-  border:1px solid #5dd37c;
+  border: 1px solid #5dd37c;
   padding: 5px;
   color: rgb(0, 0, 0);
   text-align: center;
@@ -728,9 +767,9 @@
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
-  background-color:#feffed;
+  background-color: #feffed;
   border: 1px solid rgb(237, 229, 229);
-  
+
 }
 
 .CatGridItem:hover {
@@ -2616,14 +2655,15 @@
 
   margin-top: 80px;
   min-height: 100vh;
- 
+
 
 
 }
+
 .ContainerFullindex {
-padding: 5px;
-background-color: #f7f7fa;
- 
+  padding: 5px;
+  background-color: #f7f7fa;
+
 
 
 }
@@ -2831,6 +2871,7 @@ background-color: #f7f7fa;
   font-size: 13px;
   text-align: center;
 }
+
 
 
 
@@ -6276,7 +6317,7 @@ background-color: #f7f7fa;
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
-    
+
   }
 
   .CatGridItemA {
@@ -6429,11 +6470,27 @@ background-color: #f7f7fa;
     width: 100%;
   }
 
-    .ProductGrid {
-      margin: 0 auto;
-      display: grid;
-      gap: 0.4rem;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  
-    }
+  .ProductGrid {
+    margin: 0 auto;
+    display: grid;
+    gap: 0.4rem;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+  }
+
+  .SubCatGrid {
+    display: flex;
+    overflow: auto;
+
+  }
+
+  .SubCatGrid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .SubCatGridItem {
+   
+    min-width: 150px;
+  }
+   
 }

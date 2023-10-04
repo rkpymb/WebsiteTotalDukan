@@ -99,25 +99,17 @@ function Overview() {
             <div className={Mstyles.ContainerFullindex}>
               <div style={{ minHeight: '30px' }}></div>
               <div className={Mstyles.ContainerMain}>
-             
                 <TrendingProducts />
               </div>
-              <div style={{ minHeight: '30px' }}></div>
+              <div style={{ minHeight: '10px' }}></div>
+            </div>
+            <div style={{ minHeight: '5px' }}></div>
+            <div className={Mstyles.ContainerMain}>
+              <SecondSliderlist />
             </div>
             <div className={Mstyles.ContainerMain}>
-              <div style={{ minHeight: '30px' }}></div>
-              <SecondSliderlist />
-              <div style={{ minHeight: '30px' }}></div>
+              <Trendingbycat />
             </div>
-            <div className={Mstyles.ContainerFullindex}>
-              <div style={{ minHeight: '30px' }}></div>
-              <div className={Mstyles.ContainerMain}>
-             
-                <Trendingbycat />
-              </div>
-              <div style={{ minHeight: '30px' }}></div>
-            </div>
-            
           </div>         
           <div className={Mstyles.containerFull}>
             <div className={Mstyles.OnlyDesktop}>
