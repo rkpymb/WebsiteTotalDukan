@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import Mstyles from '../../../Styles/home.module.css';
-import { DO_SPACES_URL, DO_SPACES_FOLDER } from '../../../Data/config'
+import { MediaFilesUrl, MediaFilesFolder } from '../../../Data/config'
 
 import {
    
@@ -55,7 +55,7 @@ function RecentOrders(props) {
                         <div className={Mstyles.SubCatGridItem}>
                             <div className={Mstyles.SubCatGridItemA}>
                                 <Image 
-                                    src={`${DO_SPACES_URL}${DO_SPACES_FOLDER}/${item.image}`}
+                                    src={`${MediaFilesUrl}${MediaFilesFolder}/${item.image}`}
                                     alt="image"
                                     layout="responsive"
                                     placeholder='blur'

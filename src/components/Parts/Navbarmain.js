@@ -3,11 +3,8 @@ import Image from 'next/image'
 import CheckloginContext from '../../../context/auth/CheckloginContext'
 import Mstyles from '../../../Styles/home.module.css'
 import { AiOutlineLogin } from 'react-icons/ai';
-import { VscAccount, VscVerified } from "react-icons/vsc";
-import { IoIosCall } from "react-icons/io";
-import { BiMenuAltLeft } from "react-icons/bi";
-import { BsFillEmojiSunglassesFill } from "react-icons/bs";
-import HeaderMenuLeft from '../Subparts/HeaderMenuLeft'
+import Lottie from 'react-lottie'
+import * as animationData from '../../../Data/Lottie/animation_lnfa1lxooffers.json'
 import { LuShoppingBag, LuSearch, LuChevronRight } from "react-icons/lu";
 import Avatar from '@mui/material/Avatar';
 import Badge from '@mui/material/Badge';
@@ -32,18 +29,15 @@ const Navbarmain = (props) => {
         },
     }));
 
-
-    useEffect(() => {
-        window.scrollTo(0, 0)
-        if (Contextdata.IsLogin == true) {
-            if (Contextdata.Data.name == '' || Contextdata.Data.email == '') {
-                router.push('/editprofile')
-                
-            }
+    const defaultOptions2 = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
         }
+    }
 
-
-    },[]);
     return (
         <>
             <div className={Mstyles.navbarBox}>
@@ -68,33 +62,41 @@ const Navbarmain = (props) => {
                                     </div>
                                 </div>
                             </Link>
-                           
+
                         </div>
 
 
 
                     </div>
                     <div className={Mstyles.NavLeft}>
+                        <div className={Mstyles.OnlyDesktop}>
+                            <Link href='/Offers'>
+                                <div className={Mstyles.OfferTabTop}>
+                                    <div>
+                                        <Lottie options={defaultOptions2}
+                                            width={30}
+                                            height={30}
+                                            isStopped={false}
+                                            isPaused={false} />
+                                    </div>
+                                    <div className={Mstyles.OfferTabTopB}>
+                                        <span>Best Offers</span>
+                                    </div>
 
-                        <Link href='/bag' className={Mstyles.CartIconBox}>
+                                </div>
 
-                            <IconButton aria-label="cart">
-                                <StyledBadge badgeContent={Contextdata.ItemsinCart} color="secondary">
-                                    <LuShoppingBag />
-                                </StyledBadge>
-                            </IconButton>
-                        </Link>
-                        <div className={Mstyles.OnlyMobile}>
-                            <div className={Mstyles.CartIconBox}>
-                                <Link href='/Search'>
-                                    <IconButton aria-label="cart">
-                                        <StyledBadge color="secondary">
-                                            <LuSearch />
-                                        </StyledBadge>
-                                    </IconButton>
-                                </Link>
-                               
-                            </div>
+                            </Link>
+                        </div>
+                        <div style={{ minWidth: '20px' }}></div>
+                        <div className={Mstyles.OnlyDesktop}>
+                            <Link href='/bag' className={Mstyles.CartIconBox}>
+
+                                <IconButton aria-label="cart">
+                                    <StyledBadge badgeContent={Contextdata.ItemsinCart} color="secondary">
+                                        <LuShoppingBag />
+                                    </StyledBadge>
+                                </IconButton>
+                            </Link>
                         </div>
 
                         <div className={Mstyles.loginbtnTopBtns}>
@@ -111,7 +113,7 @@ const Navbarmain = (props) => {
                                 <Link href='/Profile' >
                                     <div className={Mstyles.UserAvaTarBox}>
                                         <div >
-                                            <Avatar src="/userdp.png"  />
+                                            <Avatar src="/userdp.png" />
                                         </div>
                                         <div className={Mstyles.OnlyDesktop}>
                                             <div className={Mstyles.UserAvaTarBoxCircleTextBox}>

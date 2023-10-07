@@ -10,7 +10,7 @@ import Footer from 'src/components/Footer';
 import CatlistGrid from '../../../pages/components/List/CatlistGrid'
 import Link from 'next/link';
 import Image from 'next/image';
-import TSlistGrid from '../../../pages/components/List/TSlistGrid'
+
 import { FiChevronRight } from "react-icons/fi";
 function DashboardCrypto() {
   const blurredImageData = 'data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN88enTfwAJYwPNteQx0wAAAABJRU5ErkJggg==';

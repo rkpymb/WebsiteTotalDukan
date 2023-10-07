@@ -7,15 +7,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FiChevronRight } from "react-icons/fi";
 import Mstyles from '../../../Styles/home.module.css';
-import { DO_SPACES_URL, DO_SPACES_FOLDER } from '../../../Data/config'
+import { MediaFilesUrl, MediaFilesFolder } from '../../../Data/config'
 import ProductGridlistLoader from '/src/components/Parts/ProductGridlistLoader'
 import { LuFilter, LuLayoutList, LuIndianRupee } from "react-icons/lu";
-import { FiBarChart, FiBarChart2 } from "react-icons/fi";
-import Skeleton from '@mui/material/Skeleton';
 
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Fade from '@mui/material/Fade';
 import {
 
     IconButton,
@@ -119,10 +114,10 @@ function RecentOrders() {
 
                     {Retdata.map((item, index) => {
                         return <div className={Mstyles.ProductGridItem}>
-                            <Link href={`/Category/${item.slug}`} key={item.id} style={{ textDecoration: 'none' }}>
+                            <Link href={`/Product/${item.slug}`} key={index} style={{ textDecoration: 'none' }}>
                                 <div className={Mstyles.ProductItemImage}>
                                     <Image
-                                        src={`${DO_SPACES_URL}${DO_SPACES_FOLDER}/${item.img}`}
+                                        src={`${MediaFilesUrl}${MediaFilesFolder}/${item.img}`}
                                         alt="image"
                                         layout="responsive"
                                         placeholder='blur'

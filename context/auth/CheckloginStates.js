@@ -26,40 +26,39 @@ const CheckloginStates = (props) => {
     const router = useRouter()
 
     useEffect(() => {
-        try {
-            if (localStorage.getItem('Token')) {
-                setIsLogin(true)
-                const JwtTokenx = localStorage.getItem('Token');
-                setJwtToken(JwtTokenx)
-                const sendUser = { JwtToken:JwtTokenx }
-            
-                const data = fetch("/api/V2/auth/Checklogin", {
-                    method: "POST",
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                    body: JSON.stringify(sendUser)
-                }).then((a) => {
-                    return a.json();
+        console.log('oo')
+        if (localStorage.getItem('Token')) {
+            setIsLogin(true)
+            const JwtTokenx = localStorage.getItem('Token');
+            setJwtToken(JwtTokenx)
+            const sendUser = { JwtToken: JwtTokenx }
+
+            const data = fetch("/api/V2/auth/Checklogin", {
+                method: "POST",
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(sendUser)
+            }).then((a) => {
+                return a.json();
+            })
+                .then((parsedUser) => {
+                    if (parsedUser.ReqS == true) {
+                        const NTok = parsedUser.RetD;
+                        decryptData(NTok)
+
+                    } else {
+                        alert('Something went wrong, Please Login again')
+                        setIsLogin(false)
+                        localStorage.clear()
+                    }
+
                 })
-                    .then((parsedUser) => {
-                        if (parsedUser.ReqS == true) {
-                            const NTok = parsedUser.RetD;
-                            decryptData(NTok)
-
-                        } else {
-                            alert('Something went wrong, Please Login again')
-                            setIsLogin(false)
-                            localStorage.clear()
-                        }
-
-                    })
-            } 
-        } catch (error) {
-            console.error(error)
-
+        } else {
+            setIsLogin(false)
         }
-
+       
+      
 
     }, [router.query]);
     useEffect(() => {

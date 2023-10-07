@@ -1,7 +1,33 @@
 .OnlyDesktop {
   display: block;
 }
+.CouponCodeBox{
+  display: flex;
+ 
+  border-radius: 8px;
+  border: 2px dashed rgb(183, 173, 173);
+   min-width: 80%;
+   padding: 15px;
+  height:100px;
+  overflow: hidden;
+}
+.DiscountTextc{
+  font-size:10px;
+}
+.Codetitle small{
+  font-size:12px;
+}
+.Codetitle{
+  font-size: 15px;
+  font-weight: 700;
+}
 
+.CouponCodeBoxB{
+  margin-left:15px;
+}
+.CouponCodeImage{
+  width:50px;
+}
 .UserCounterGid {
   margin: 0 auto;
   display: grid;
@@ -44,7 +70,7 @@
   min-height: 70px;
   overflow: hidden;
   object-fit: cover;
- 
+
 }
 
 
@@ -225,6 +251,72 @@
 
 }
 
+.ProductBox {
+  display: flex;
+
+}
+
+.ProductBoxA {
+
+  width: 35%;
+
+  padding: 20px;
+
+
+}
+
+.ProductBoxB {
+
+  width: 65%;
+  padding: 20px;
+
+  border-left: 1px solid rgb(229, 215, 215);
+}
+
+.ProductBoxBBox {
+
+  max-height: 450px;
+  overflow: auto;
+
+}
+
+.ProductshareMobile {
+  display: none;
+}
+
+.Productpageaddtocartbox {
+  width: 30%;
+}
+
+.PriceboxProduct {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.PriceboxProduct span {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.PriceboxProduct small {
+  font-size: 13px;
+}
+
+.ProductBoxB h2 {
+  margin: 0;
+}
+
+
+
+.ProductImageBox {
+  width: 100%;
+}
+
+.smallcatimg {
+  width: 50px;
+  height: 50px;
+}
+
 .ProductItemImage {
   background-color: #ffffff;
   min-width: 150px;
@@ -273,7 +365,31 @@
   color: rgb(0, 0, 0);
   text-align: center;
   border-radius: 7px;
+  cursor: pointer;
 
+
+}
+
+.Addcartbtn2 {
+  background-color: #00a6ff;
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  border-radius: 7px;
+  cursor: pointer;
+
+
+}
+
+.AddcartbtnGroup2 {
+  background-color: #faac2a;
+  padding: 7px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
 }
 
@@ -319,7 +435,7 @@
 
 .AddcartbtnGroup {
   background-color: #faac2a;
-  padding: 5px;
+  padding: 3px;
   color: rgb(0, 0, 0);
   text-align: center;
   border-radius: 7px;
@@ -347,6 +463,36 @@
   min-width: 399px;
 
 
+}
+
+.OfferTabTop {
+  display: flex;
+  align-items: center;
+  background-color: rgb(214, 255, 168);
+  border-radius: 25px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.OfferTabTopB {
+  margin-left: 5px;
+
+}
+
+.OfferTabTopB span {
+  font-weight: 500;
+
+}
+
+.SecondSwiperImg {
+  width: 100%;
+}
+
+.SecondSwiperImg img {
+  border-radius: 10px;
+  width: 100%;
 }
 
 .SwiperImgae img {
@@ -437,26 +583,25 @@
 
 .SearchTopBox {
   margin: 5px;
-  color: #1e304b;
+
   display: flex;
   align-items: center;
-  background-color: #f2f2f2;
-  border-radius: 7px;
-  width: 400px;
+  background-color: #f0f5ff;
+  border-radius: 25px;
+  width: 600px;
   margin-left: 30px;
-  padding: 10px;
+
   cursor: pointer;
-
-}
-
-.SearchTopBox:hover {
+  padding: 10px 20px 8px 20px;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 }
+
 
 .SearchTopBoxB {
   margin-top: -5px;
   margin-left: 10px;
-  color: #86868d;
+  color: #41415a;
+
 }
 
 .CourseItemsTBox {
@@ -768,6 +913,24 @@
   border-radius: 5px;
   cursor: pointer;
   background-color: #feffed;
+  border: 1px solid rgb(237, 229, 229);
+
+}
+
+.SinglePoster {
+  width: 100%;
+  cursor: pointer;
+
+}
+
+.CatGridItemLoader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #ffffff;
   border: 1px solid rgb(237, 229, 229);
 
 }
@@ -2574,6 +2737,7 @@
 }
 
 .ProfileMainBox {
+  width: 100%;
   margin-top: 10px;
 }
 
@@ -2642,6 +2806,11 @@
 
 }
 
+.ProductBoxMianContainer {
+  margin-top: 80px;
+
+}
+
 .ContainerMainBoxFull {
 
   margin-top: 80px;
@@ -2669,6 +2838,14 @@
 }
 
 .ContainerMain {
+  margin: auto;
+  width: 80%;
+  color: #3c4852;
+
+
+}
+
+.ContainerSecondSliderlist {
   margin: auto;
   width: 80%;
   color: #3c4852;
@@ -3599,7 +3776,6 @@
   position: fixed;
   top: 0;
   overflow: hidden;
-  /* background-color: #262261; */
   background-color: white;
   border-bottom: 1px solid rgb(243, 237, 237);
   z-index: 999;
@@ -3971,6 +4147,7 @@
 .CartIconBox {
   color: #1e304b;
   margin-left: 5px;
+
 }
 
 .MainMenu li:hover {
@@ -5715,6 +5892,7 @@
     background-color: rgb(255, 255, 255);
     position: relative;
     border-radius: 10px;
+    width: 100%;
   }
 
   .regBox {
@@ -6489,8 +6667,86 @@
   }
 
   .SubCatGridItem {
-   
+
     min-width: 150px;
   }
-   
+
+  .ContainerSecondSliderlist {
+
+    width: 100%;
+
+
+  }
+
+  .SecondSwiperImg {
+    margin: 10px;
+    width: 180px;
+  }
+
+  .SecondSwiperImg img {
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  .ContainerMainBoxFullindex {
+
+    margin-top: 70px;
+
+  }
+
+  .ProductBox {
+    flex-direction: column;
+
+  }
+
+  .ProductBoxA {
+
+    width: 100%;
+
+    padding: 5px;
+
+
+  }
+
+  .ProductBoxB {
+
+    width: 100%;
+    padding: 5px;
+
+    border: none;
+  }
+
+  .Productpageaddtocartbox {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+
+    background-color: #ffffff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+
+  }
+  .ProductpageaddtocartboxA{
+    width: 70%;
+  }
+
+  .ProductBoxBBox {
+
+    max-height: 100%;
+
+
+  }
+
+  .ProductshareMobile {
+    display: block;
+    margin-left: 5px;
+  }
 }

@@ -17,32 +17,41 @@ import { ShortAbout, AppName, SocialHandles, Contactinfo, DomainURL } from '../.
 
 const FooterMobile = (props) => {
     const Contextdata = useContext(CheckloginContext)
-
+    const [Show, setShow] = useState(false);
  
-
+    useEffect(() => {
+        setShow(true)
+        setTimeout(() => {
+           
+            setShow(false)
+        }, 3000); 
+        
+    }, [Contextdata.ItemsinCart]);
     return (
         <>
-            {Contextdata.ItemsinCart > 0 &&
-                <div className={Mstyles.FooterMobileBoxCheckout}>
-                    <div className={Mstyles.QuickCheckoutBox}>
-                        <div className={Mstyles.QuickCheckoutBoxA}>
-                            
+            {Show &&
+                <div>
+                    {Contextdata.ItemsinCart > 0 &&
+                        <div className={Mstyles.FooterMobileBoxCheckout}>
+                            <div className={Mstyles.QuickCheckoutBox}>
+                                <div className={Mstyles.QuickCheckoutBoxA}>
+                                    {Contextdata.ItemsinCart > 1 &&
+                                        <span>{Contextdata.ItemsinCart} Items</span>
+                                    }
+                                    {Contextdata.ItemsinCart == 1 &&
+                                        <span>{Contextdata.ItemsinCart} Item</span>
+                                    }
+                                    <small> in your bag</small>
+                                </div>
+                                <Link href='/bag' className={Mstyles.QuickCheckoutBoxB}>
+                                    <Button variant="contained" endIcon={<SendIcon />}>
+                                        Checkout
+                                    </Button>
+                                </Link>
 
-                            {Contextdata.ItemsinCart > 1 && 
-                            <span>{Contextdata.ItemsinCart} Items</span>
-                            }
-                            {Contextdata.ItemsinCart == 1 &&
-                                <span>{Contextdata.ItemsinCart} Item</span>
-                            }
-                            <small> in your bag</small>
+                            </div>
                         </div>
-                        <Link href='/bag' className={Mstyles.QuickCheckoutBoxB}>
-                            <Button variant="contained" endIcon={<SendIcon />}>
-                                Checkout
-                            </Button>
-                        </Link>
-
-                    </div>
+                    }
                 </div>
             }
            

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import CheckloginContext from '../../../context/auth/CheckloginContext'
 import Mstyles from '../../../Styles/home.module.css';
-import { DO_SPACES_URL, DO_SPACES_FOLDER } from '../../../Data/config'
+import { MediaFilesUrl, MediaFilesFolder } from '../../../Data/config'
 import ProductGridlistLoader from '/src/components/Parts/ProductGridlistLoader'
 import Skeleton from '@mui/material/Skeleton';
 import { LuFilter, LuLayoutList, LuIndianRupee } from "react-icons/lu";
@@ -142,7 +142,7 @@ function RecentOrders(props) {
                             <Link href={`/Category/${item.slug}`} key={item.id} style={{ textDecoration: 'none' }}>
                                 <div className={Mstyles.ProductItemImage}>
                                     <Image
-                                        src={`${DO_SPACES_URL}${DO_SPACES_FOLDER}/${item.img}`}
+                                        src={`${MediaFilesUrl}${MediaFilesFolder}/${item.img}`}
                                         alt="image"
                                         layout="responsive"
                                         placeholder='blur'

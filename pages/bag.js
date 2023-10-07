@@ -24,7 +24,7 @@ import NavbarmainCart from '../src/components/Parts/NavbarmainCart'
 import Navbarmain from '../src/components/Parts/Navbarmain'
 
 import IconButton from '@mui/material/IconButton';
-import { DO_SPACES_URL, DO_SPACES_FOLDER } from '../Data/config'
+import { MediaFilesUrl, MediaFilesFolder } from '../Data/config'
 import { useRouter, useParams } from 'next/router'
 
 import Dialog from '@mui/material/Dialog';
@@ -291,7 +291,7 @@ function Overview() {
                             <Link href={`/`} style={{ textDecoration: 'none' }}>
                               <div className={Mstyles.CartListItemAImg}>
                                 <Image
-                                  src={`${DO_SPACES_URL}${DO_SPACES_FOLDER}/${Contextdata.cart[k].itemImg}`}
+                                  src={`${MediaFilesUrl}${MediaFilesFolder}/${Contextdata.cart[k].itemImg}`}
                                   alt="image"
                                   layout="responsive"
                                   placeholder='blur'

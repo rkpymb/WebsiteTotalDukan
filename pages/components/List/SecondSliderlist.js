@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { FreeMode, Pagination, Navigation } from 'swiper/modules';
 
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,51 +15,56 @@ export default function HomeSliders() {
     return (
         <>
             <Swiper
-                
-                breakpoints={{
-                    576: {
-                        width: 576,
-                        slidesPerView: 1,
-                    },
-                    768: {
-                        width: 768,
-                        slidesPerView: 1,
-                    },
-                }}
-             
-                spaceBetween={30}
-                centeredSlides={false}
-                autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                }}
+                slidesPerView={2}
+                spaceBetween={5}
+                freeMode={true}
                 pagination={{
                     clickable: true,
                 }}
                 navigation={true}
-                modules={[Autoplay, Pagination, Navigation]}
+                modules={[FreeMode, Navigation]}
                 className="mySwiper"
-                slidesPerView={1}
+                breakpoints={{
+                    768: {
+                        slidesPerView: 2, // Display 2 slides on tablets (768px or more)
+                    },
+                    992: {
+                        spaceBetween:20,
+                        slidesPerView: 3, // Display 3 slides on desktop (992px or more)
+                    },
+                }}
+
             >
-                <SwiperSlide className={Mstyles.SwiperImgae}>
-                    <img src="https://cdn.zeptonow.com/production///tr:w-969,ar-969-501,pr-true,f-webp,q-80/inventory/banner/6a3c3c6a-5dda-4b2e-ab7e-0c4366481c93-BLR_Mid_week_refresh_(1).png" LuUser2 />
+                <SwiperSlide>
+                    <div className={Mstyles.SecondSwiperImg}>
+                        <img src="https://cdn.zeptonow.com/production///tr:w-969,ar-969-501,pr-true,f-webp,q-80/inventory/banner/b306bb1f-84c5-4c7e-8891-adb4fdc40118-BANNER_CAROUSEL_WITHOUT_TITLE_1_-_2023-09-12T120829.498.png" />
+                    </div>
+                  
 
                 </SwiperSlide>
-                <SwiperSlide className={Mstyles.SwiperImgae}>
-                    <img src="https://cdn.zeptonow.com/production///tr:w-969,ar-969-499,pr-true,f-webp,q-80/inventory/banner/f2af0cba-b166-46f9-9e5e-2e42e6cda62a-BANNER_CAROUSEL_Fasting__eseentials.png" />
+               
+                <SwiperSlide>
+                    <div className={Mstyles.SecondSwiperImg}>
+                        <img src="https://cdn.zeptonow.com/production///tr:w-969,ar-969-501,pr-true,f-webp,q-80/inventory/banner/ae898084-0c61-4590-ac68-e86507ea6cac-BANNER_CAROUSEL_WITHOUT_TITLE_1_-_2023-09-29T193903.284.png" />
+
+                    </div>
+
+                  
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className={Mstyles.SecondSwiperImg}>
+                        <img src="https://cdn.zeptonow.com/production///tr:w-969,ar-969-501,pr-true,f-webp,q-80/inventory/banner/93708ef1-bff9-4f9c-a2fb-2bbcf9d46ca9-BANNER_CAROUSEL_WITHOUT_TITLE_1_(58).png" />
+
+                    </div>
+                   
 
                 </SwiperSlide>
-                <SwiperSlide className={Mstyles.SwiperImgae}>
-                    <img src="https://cdn.zeptonow.com/production///tr:w-969,ar-969-501,pr-true,f-webp,q-80/inventory/banner/0b46da39-0f7f-45a9-956f-d396f48de3c6-Banner_carousel_(2).png" />
+                <SwiperSlide>
+                   
+                    <div className={Mstyles.SecondSwiperImg}>
+                        <img src="https://cdn.zeptonow.com/production///tr:w-969,ar-969-501,pr-true,f-webp,q-80/inventory/banner/7841f738-be6a-4a88-98c4-095e6a67c8d3-BANNER_CAROUSEL_WITHOUT_TITLE_1_(41).png" />
 
-                </SwiperSlide>
-                <SwiperSlide className={Mstyles.SwiperImgae}>
-                    <img src="https://cdn.zeptonow.com/production///tr:w-969,ar-969-501,pr-true,f-webp,q-80/inventory/banner/0a7b09b8-4abc-4807-b851-47f77932ccca-BANNER_CAROUSEL_WITHOUT_TITLE_1_-_2023-08-30T170601.464.png" />
-
-                </SwiperSlide>
-                <SwiperSlide className={Mstyles.SwiperImgae}>
-                    <img src="https://cdn.zeptonow.com/production///tr:w-969,ar-969-501,pr-true,f-webp,q-80/inventory/banner/aaca333e-5aa4-405f-96c5-9b8e9222cb08-BANNER_CAROUSEL_WITHOUT_TITLE_1_-_2023-10-03T133900.700.png" LuUser2 />
-
+                    </div>
                 </SwiperSlide>
 
             </Swiper>

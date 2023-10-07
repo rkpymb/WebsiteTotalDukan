@@ -3,14 +3,48 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router'
 import Link from 'next/link';
 import Image from 'next/image';
-
+import Skeleton from '@mui/material/Skeleton';
 import Mstyles from '../../../Styles/home.module.css';
-import { DO_SPACES_URL, DO_SPACES_FOLDER } from '../../../Data/config'
-import CatgridlistLoader from '/src/components/Parts/CatgridlistLoader'
+import { MediaFilesUrl, MediaFilesFolder } from '../../../Data/config'
+
 import {
 
     useTheme,
 } from '@mui/material';
+
+const loadritem = [
+    {
+        data:1
+    },
+    {
+        data: 1
+    },
+    {
+        data: 1
+    },
+    {
+        data: 1
+    },
+    {
+        data: 1
+    },
+    {
+        data: 1
+    },
+    {
+        data: 1
+    },
+    {
+        data: 1
+    },
+    {
+        data: 1
+    },
+    {
+        data: 1
+    }
+
+]
 
 function RecentOrders() {
 
@@ -33,9 +67,11 @@ function RecentOrders() {
                 return a.json();
             })
                 .then((parsed) => {
-                    // console.log(parsed.ReqD.categories)
                     setRetdata(parsed.ReqD.categories)
-                    setIsLoading(false)
+                    if (parsed.ReqD.categories.length > 0) {
+                        setIsLoading(false)
+                    }
+                    
                 })
         }
         handleSubmit()
@@ -54,7 +90,7 @@ function RecentOrders() {
                         <div className={Mstyles.CatGridItem}>
                             <div className={Mstyles.CatGridItemA}>
                                 <Image 
-                                    src={`${DO_SPACES_URL}${DO_SPACES_FOLDER}/${item.image}`}
+                                    src={`${MediaFilesUrl}${MediaFilesFolder}/${item.image}`}
                                     alt="image"
                                     layout="responsive"
                                     placeholder='blur'
@@ -92,7 +128,24 @@ function RecentOrders() {
         }
 
         {isLoading && 
-            <CatgridlistLoader/>
+            <div>
+                <div className={Mstyles.CatGrid}>
+
+                    {loadritem.map((item) => {
+                        return <div className={Mstyles.CatGridItemLoader}>
+                            <Skeleton variant="rounded" width={50} height={50} />
+                            <Skeleton variant="text" sx={{ fontSize: '1rem' }} width={'50%'} />
+                        </div>
+
+
+                    }
+
+                    )}
+                   
+                   
+                    
+                </div>
+            </div>
         }
 
         </>

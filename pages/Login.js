@@ -6,7 +6,7 @@ import CheckloginContext from '../context/auth/CheckloginContext'
 import Mstyles from '../Styles/home.module.css'
 import Lottie from 'react-lottie'
 import TextField from '@mui/material/TextField';
-import { FiChevronRight } from 'react-icons/fi';
+import { FiChevronRight, FiEdit } from 'react-icons/fi';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import { BASE_URL, AppName, CryptoJSKEY } from '../Data/config'
@@ -24,7 +24,7 @@ const Login = () => {
     const [sot, setSot] = useState('');
     const [isalert, setIsalert] = useState(false);
     const [mobilebox, setMobilebox] = useState(true);
-    const [Otpbox, setOtpbox] = useState();   
+    const [Otpbox, setOtpbox] = useState(false);   
     const [UserType, setUserType] = useState('');
 
     const defaultOptions = {
@@ -69,7 +69,7 @@ const Login = () => {
     const handleSubmit = async () => {
         if (usermobile.length == 10) {
             setLoading(true)
-            const sendUM = { usermobile }
+            const sendUM = { usermobile: usermobile }
             const data = await fetch("api/V2/auth/ProcessMobile", {
                 method: "POST",
                 headers: {
@@ -80,8 +80,15 @@ const Login = () => {
                 return a.json();
             })
                 .then((parsed) => {
-                    setLoading(false)
-                    decryptData(parsed.RetD)
+                    console.log(parsed)
+                    if (parsed.ReqS == true) {
+                        decryptData(parsed.RetD)
+                     
+                    } else {
+                        setLoading(false)
+                        alert('Something Went Wrong please contact support')
+                    }
+                   
                     
                 })
         
@@ -98,9 +105,11 @@ const Login = () => {
         const bytes = CryptoJS.AES.decrypt(e, CryptoJSKEY);
         const dataNew = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
         if (dataNew.data.return == true) {
+            setLoading(false)
             setUserType(dataNew.type)
             setMobilebox(false)
             setOtpbox(true)
+            
             
         } else {
             alert('Something Went Wrong')
@@ -135,14 +144,13 @@ const Login = () => {
             })
                 .then((parsedFinal) => {
                     if (parsedFinal.ReqD.Ls == true) {
+                        localStorage.setItem('Token', parsedFinal.ReqD.token)
                         setTimeout(function () {
-                            const u_type = UserType;
-
-                            console.log(u_type)
-                            localStorage.setItem('Token', parsedFinal.ReqD.token);
-                            
-                            // router.push('/')
-                            router.back();
+                            if (parsedFinal.ReqD.UType == ''){
+                                router.push('/Onboarding')
+                            } else {
+                                router.back();
+                            }
                         }, 2000);
                        
                     } else {
@@ -173,6 +181,11 @@ const Login = () => {
             .then((parsed) => {
             //    console.log('Welcome')
             })
+    }
+
+    const ShowMobile = async () => {
+        setOtpbox(false)
+        setMobilebox(true)
     }
     return (
         <>
@@ -246,8 +259,13 @@ const Login = () => {
                                     isPaused={false} />
                             </div>
                             <div className={Mstyles.logomainBox}>
-                                <div><h3>Enter OTP</h3>
-                                    <span>OTP Succesfully Sent on +91{usermobile}</span>
+
+                                <div style={{ height: '10px' }}> </div>
+                                <div className={Mstyles.logomain}>
+                                    <img src='/tolodukanLogoWeb.svg' alt='logo' />
+                                </div>
+                                <div><h3>Enter OTP </h3>
+                                    <span>OTP Succesfully Sent on +91{usermobile}</span> <span style={{marginLeft:'10px', color:'blue'}} onClick={ShowMobile}><FiEdit/></span>
                                 </div>
                                 <div className={Mstyles.LoginBox_input}>
                                     <TextField fullWidth label="Enter OTP" id="otpinput" type="number" onChange={handleChangeOTP} autoFocus />
