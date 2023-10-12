@@ -77,7 +77,7 @@ function Overview() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (Name !== '' && Email !== '') {
+        if (Name !== '') {
             setLoadingBtn(true)
             try {
                 if (localStorage.getItem('Token')) {
@@ -158,7 +158,7 @@ function Overview() {
                                         </div>
                                        
                                         <div className={Mstyles.InputBoxData}>
-                                            <label>Email Address</label>
+                                            <label>Email Address (optional)</label>
                                             <div style={{ minHeight: '8px' }}></div>
                                             <input
                                                 required

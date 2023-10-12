@@ -7,17 +7,21 @@ import CryptoJS from "crypto-js";
 const CheckloginStates = (props) => {
     const [Data, setData] = useState({});
     const [IsLogin, setIsLogin] = useState(false);
+    const [ChangeOrderData, setChangeOrderData] = useState(0);
     const [OpenSerch, setOpenSerch] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [ItemsinCart, setItemsinCart] = useState(0);
     const [ProfileDone, setProfileDone] = useState(0);
     const [cart, setCart] = useState({});
-
+    const [CouponData, setCouponData] = useState([]);
     const [subTotal, setSubTotal] = useState(0);
+    const [CodeApplied, setCodeApplied] = useState(false);
+    const [Grandtotal, setGrandtotal] = useState(0);
     const [JwtToken, setJwtToken] = useState(null);
     const [userlog, setUserlog] = useState({ value: null });
     const [userlogData, setUserlogData] = useState();
     const [FinalDiscount, setFinalDiscount] = useState(0);
+    const [CouponDiscount, setCouponDiscount] = useState(0);
     const [ExpectedDelivery, setExpectedDelivery] = useState('Expected Delivery 26/09/2023 11:00 AM');
     const [AmtWithoutDiscount, setAmtWithoutDiscount] = useState(0);
     const [Deliveryfee, setDeliveryfee] = useState(1);
@@ -76,10 +80,19 @@ const CheckloginStates = (props) => {
 
 
     }, [router.query]);
+
+    useEffect(() => {
+       
+
+
+
+    },[ChangeOrderData]);
   
 
     // cart functions
     const saveCart = (myCart) => {
+        setCouponDiscount(0)
+        setCodeApplied(false)
         localStorage.setItem("cart", JSON.stringify(myCart));
         let subt = 0;
         let keys = Object.keys(myCart);
@@ -98,6 +111,7 @@ const CheckloginStates = (props) => {
     }
 
     const addtoCart = (itemCode, qty, price, name, itemImg, UnitNumber, UnitText, mprice, item) => {
+       
         let newCart = cart;
 
         if (itemCode in cart) {
@@ -116,6 +130,7 @@ const CheckloginStates = (props) => {
         console.log('cart cleared')
     }
     const removeFromCart = (itemCode, qty) => {
+       
         let newCart = cart;
         if (itemCode in cart) {
             newCart[itemCode].qty = cart[itemCode].qty - qty
@@ -129,6 +144,7 @@ const CheckloginStates = (props) => {
         // alert(name+'removed from cart')
     }
     const FInalremoveFromCart = (itemCode, qty) => {
+       
         let newCart = cart;
         delete newCart[itemCode]
         setCart(newCart);
@@ -161,11 +177,23 @@ const CheckloginStates = (props) => {
         } 
     };
 
+    const MakeGrandTotal = () => {
+        const MianTotal = subTotal  + Deliveryfee
+        const Final = MianTotal - CouponDiscount;
+        setGrandtotal(Final)
+       
+    };
+    const MakefinalDiscount = (e) => {
 
-    // cart functions
+        setFinalDiscount(e + CouponDiscount)
+       
+    };
+   
+   
+
 
     return (
-        <CheckloginContext.Provider value={{ Data, IsLogin, ProfileDone, currentQuestion, ChangeCurrentQuestion, ItemsinCart, addtoCart, removeFromCart, clearCart, cart, subTotal, setCart, FInalremoveFromCart, setSubTotal, FinalDiscount, setFinalDiscount, Deliveryfee, DeliveryTime, AmtWithoutDiscount, ExpectedDelivery, Logout, JwtToken, setJwtToken }}>
+        <CheckloginContext.Provider value={{ Data, IsLogin, ProfileDone, currentQuestion, ChangeCurrentQuestion, ItemsinCart, addtoCart, removeFromCart, clearCart, cart, subTotal, setCart, FInalremoveFromCart, setSubTotal, FinalDiscount, MakefinalDiscount, Deliveryfee, DeliveryTime, AmtWithoutDiscount, ExpectedDelivery, Logout, JwtToken, setJwtToken, Grandtotal, MakeGrandTotal, setCouponDiscount, CodeApplied, setCodeApplied, CouponData, setCouponData }}>
             {props.children}
         </CheckloginContext.Provider>
     )

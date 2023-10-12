@@ -81,6 +81,7 @@ function Overview() {
   const [CreateOrderBtnText, setCreateOrderBtnText] = useState('Place your Order')
   const [changedProducts, setChangedProducts] = useState([]);
   const [AlertOpen, setAlertOpen] = useState(false);
+ 
   const [Retdata, setRetdata] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [OrderDone, setOrderDone] = useState(false);
@@ -112,6 +113,7 @@ function Overview() {
     setOpen(true);
     setScroll(scrollType);
   };
+ 
 
   const handleClose = () => {
     setOpen(false);
@@ -263,10 +265,10 @@ function Overview() {
         body: JSON.stringify({
           JwtToken: JwtToken,
           Mprice: Contextdata.AmtWithoutDiscount,
-          TotalItemAmt: Contextdata.subTotal,
-          FinalItemAmt: Contextdata.subTotal + Contextdata.Deliveryfee,
+          TotalItemAmt: Contextdata.Grandtotal - Contextdata.Deliveryfee,
+          FinalItemAmt: Contextdata.Grandtotal,
           Discount: Contextdata.FinalDiscount,
-          Coupon: Coupon,
+          Coupon: Contextdata.CouponData.Ccode,
           PaymentType: PaymentType,
           Paymentid: "N/A",
           refid: "N/A",
@@ -542,7 +544,7 @@ function Overview() {
 
                               </div>
                               <div className={Mstyles.CartSummyboxListBoxItemB}>
-                                <span className={Mstyles.amttextSub}>₹ {Contextdata.subTotal + Contextdata.Deliveryfee}</span>
+                                <span className={Mstyles.amttextSub}>₹ {Contextdata.Grandtotal}</span>
                               </div>
                             </div>
                           </div>
@@ -705,6 +707,8 @@ function Overview() {
         scroll={scroll}
         aria-labelledby="scroll-dialog-title"
         aria-describedby="scroll-dialog-description"
+        fullWidth
+        maxWidth="sm"
       >
         <DialogTitle id="scroll-dialog-title">Add new address</DialogTitle>
         <DialogContent dividers={scroll === 'paper'}>

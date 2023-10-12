@@ -25,7 +25,7 @@ import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 import Footer from '../src/components/Parts/Footer'
 import { LuLayoutGrid, LuLayoutList } from "react-icons/lu";
-import { DO_SPACES_URL, DO_SPACES_FOLDER } from '../Data/config'
+import { MediaFilesUrl, MediaFilesFolder } from '../Data/config'
 import ProcedToCheckout from '../src/components/Parts/ProcedToCheckout'
 import { useRouter, useParams } from 'next/router'
 const HeaderWrapper = styled(Card)(
@@ -55,10 +55,7 @@ function Overview() {
   const [Query, setQuery] = useState('');
   const blurredImageData = 'data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN88enTfwAJYwPNteQx0wAAAABJRU5ErkJggg==';
   const [Results, setResults] = useState([]);
-  useEffect(() => {
-    window.scrollTo(0, 0)
-   
-  });
+
 
 
   const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -69,19 +66,7 @@ function Overview() {
       padding: '0 4px',
     },
   }));
-  const controlNavbar = () => {
-    if (window.scrollY > 450) {
-      setShow(true)
-    } else {
-      setShow(false)
-    }
-  }
-  useEffect(() => {
-    window.addEventListener('scroll', controlNavbar)
-    return () => {
-      window.removeEventListener('scroll', controlNavbar)
-    }
-  }, [])
+
 
   const handleInputChange = (e) => {
     setQuery(e.target.value);
@@ -169,10 +154,10 @@ function Overview() {
 
                   {Results.map((item, index) => {
                     return <div className={Mstyles.ProductGridItem}>
-                      <Link href={`/Category/${item.slug}`} key={item.id} style={{ textDecoration: 'none' }}>
+                      <Link href={`/Product/${item.slug}`} key={item.id} style={{ textDecoration: 'none' }}>
                         <div className={Mstyles.ProductItemImage}>
                           <Image
-                            src={`${DO_SPACES_URL}${DO_SPACES_FOLDER}/${item.img}`}
+                            src={`${MediaFilesUrl}${MediaFilesFolder}/${item.img}`}
                             alt="image"
                             layout="responsive"
                             placeholder='blur'

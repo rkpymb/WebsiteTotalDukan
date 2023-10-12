@@ -461,7 +461,7 @@
 
 .SwiperImgae {
   min-width: 399px;
-
+cursor: pointer;
 
 }
 
@@ -487,6 +487,7 @@
 }
 
 .SecondSwiperImg {
+  cursor: pointer;
   width: 100%;
 }
 
@@ -2660,7 +2661,31 @@
   align-items: center;
   justify-content: space-between;
 }
+.CuponcodeHeaderBtn{
+  cursor: pointer;
+}
+.CuponcodeHeaderTitle{
+  font-weight: 600;
+}
+.CuponcodeHeader{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.CuponcodeInput {
+  margin-top: 5px;
+  border: 0;
+  outline: 0;
+  width: 100%;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px;
+  border: 2px dashed #faac2a;
+  border: 2px dashed #faac2a;
+  text-transform: uppercase;
+  color: #faac2a;
 
+}
 .InputBoxData {
   margin-top: 15px;
 
@@ -6749,4 +6774,6 @@
     display: block;
     margin-left: 5px;
   }
+
+    
 }

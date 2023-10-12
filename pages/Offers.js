@@ -58,7 +58,7 @@ function Overview() {
     return (
         <OverviewWrapper>
             <Head>
-                <title>Categories : Toladukan.com</title>
+                <title>Offers : Toladukan.com</title>
             </Head>
 
             <div className={Mstyles.OnlyDesktop}>
@@ -67,7 +67,7 @@ function Overview() {
             </div>
             <div className={Mstyles.OnlyMobile}>
 
-                <NavbarmainCart Title={'Categories'} />
+                <NavbarmainCart Title={'Offers'} />
             </div>
             <div className={Mstyles.ContainerMainBoxFull}>
 

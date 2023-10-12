@@ -15,7 +15,8 @@ export const CryptoKey =key;
 export const RazorPayKeyid = 'rzp_test_2OIlpARet0GTeY'
 export const RazorPaySecretkey = 'OugT3Qa77k6drclGr1yjXyip'
 export const MYKEY = '86afb51e932292b013a62196f4181f6e'
-export const MediaFilesUrl = 'https://api.toladukan.com/';
+export const MediaFilesUrl = 'http://localhost:3001/';
+// export const MediaFilesUrl = 'https://api.toladukan.com/';
 export const MediaFilesFolder = 'images'
 
 export const SocialHandles = {

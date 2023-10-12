@@ -34,6 +34,8 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import LoadingButton from '@mui/lab/LoadingButton';
+
+
 const HeaderWrapper = styled(Card)(
   ({ theme }) => `
   width: 100%;
@@ -63,15 +65,21 @@ const OverviewWrapper = styled(Box)(
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-function Overview() {
+function Overview(props) {
   const router = useRouter()
   const [LoadingBtn, setLoadingBtn] = useState(false)
+  const [LoadingBtnCoupon, setLoadingBtnCoupon] = useState(false)
+  const [Applycodetext, setApplycodetext] = useState('APPLY CODE')
   const [Loading, setLoading] = useState(true);
-  const [Step, setStep] = useState(0);
+  const [CouponCode, setCouponCode] = useState('');
   const Contextdata = useContext(CheckloginContext)
   const [show, setShow] = useState(false)
+  const [CouponBoxOpen, setCouponBoxOpen] = useState(false);
   const [Deliveryfee, setDeliveryfee] = useState(0)
+  const [CouponDiscount, setCouponDiscount] = useState(0)
   const [changedProducts, setChangedProducts] = useState([]);
+  const [CouponData, setCouponData] = useState([]);
+  const [CodeApplied, setCodeApplied] = useState(false);
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -93,6 +101,13 @@ function Overview() {
     }
   }
 
+
+  const OpenCouponBox = () => {
+    setCouponBoxOpen(true);
+  };
+  const CloseCouponBox = () => {
+    setCouponBoxOpen(false);
+  };
   const blurredImageData = 'data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN88enTfwAJYwPNteQx0wAAAABJRU5ErkJggg==';
   useEffect(() => {
 
@@ -105,19 +120,20 @@ function Overview() {
   }, []);
 
   const removeItem = (itemId) => {
+
     // console.log(itemId)
     Contextdata.FInalremoveFromCart(itemId, 1)
 
   };
 
   useEffect(() => {
-    
+
     // Object.keys() ka use karke cart items ke changes ko check karen.
     Object.keys(Contextdata.cart).forEach((itemId) => {
 
       try {
         if (localStorage.getItem('Token')) {
-        
+
           Object.keys(Contextdata.cart).forEach((itemId) => {
             const cartItem = Contextdata.cart[itemId];
             const JwtToken = localStorage.getItem('Token');
@@ -138,7 +154,7 @@ function Overview() {
                 const currentP = parsedUser.ReqData.pdataRet[0]
                 if (currentP.sprice == cartItem.price) {
                   // console.log('ok')
-                  
+
                 } else {
 
                   handleClickOpen()
@@ -174,21 +190,14 @@ function Overview() {
       }
 
     });
-  });
+  }, []);
 
-  const controlNavbar = () => {
-    if (window.scrollY > 450) {
-      setShow(true)
-    } else {
-      setShow(false)
-    }
-  }
   useEffect(() => {
-    window.addEventListener('scroll', controlNavbar)
-    return () => {
-      window.removeEventListener('scroll', controlNavbar)
-    }
-  }, [])
+
+    setCouponDiscount(CouponDiscount * 0)
+
+  }, [Contextdata.cart]);
+
 
   function calculateTotalDiscount(cart) {
 
@@ -200,7 +209,8 @@ function Overview() {
       const discount = (product.mprice - product.price) * product.qty;
       totalDiscounts[productId] = discount;
       totalFinalDiscount += discount;
-      Contextdata.setFinalDiscount(totalFinalDiscount)
+      Contextdata.MakefinalDiscount(totalFinalDiscount)
+      Contextdata.MakeGrandTotal()
 
     }
 
@@ -208,6 +218,55 @@ function Overview() {
   }
 
   const { totalDiscounts, totalFinalDiscount } = calculateTotalDiscount(Contextdata.cart);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (CouponCode !== '') {
+      setLoadingBtnCoupon(true)
+      setLoadingBtn(true)
+      setApplycodetext('Checking Coupon Code')
+      const JwtToken = Contextdata.JwtToken
+      const data = fetch("/api/V3/Users/ApplyCouponCode", {
+        method: "POST",
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          JwtToken: JwtToken,
+          CouponCode: CouponCode,
+          subTotal: Contextdata.subTotal
+
+        })
+      }).then((a) => {
+        return a.json();
+      })
+        .then((DataCouponRes) => {
+
+
+          setTimeout(function () {
+            if (DataCouponRes.ReqData.IsActive) {
+              setCouponData(DataCouponRes.ReqData)
+              Contextdata.setCouponData(DataCouponRes.ReqData)
+              setCouponBoxOpen(false)
+              props.notify(DataCouponRes.ReqData.message)
+              Contextdata.setCouponDiscount(DataCouponRes.ReqData.FinalDiscount)
+              Contextdata.MakeGrandTotal(DataCouponRes.ReqData.FinalDiscount)
+              Contextdata.setCodeApplied(true)
+            } else {
+              props.notify(DataCouponRes.ReqData.message)
+            }
+            setLoadingBtn(false)
+            setLoadingBtnCoupon(false)
+            setApplycodetext('APPLY CODE')
+
+          }, 1000);
+        })
+
+    } else {
+      alert('Please Enter Coupon code')
+    }
+
+  };
   return (
     <OverviewWrapper>
       <Head>
@@ -260,7 +319,7 @@ function Overview() {
 
                   </div>
                   <div className={Mstyles.CartitemBox}>
-                    
+
 
                     <div className={Mstyles.OnlyMobile}>
                       <div style={{ minHeight: '80px' }}></div>
@@ -355,39 +414,76 @@ function Overview() {
 
                 </div>
                 <div className={Mstyles.BagFlexBoxB}>
-                  <div className={Mstyles.BagFlexBoxBCupon}>
-                    <div className={Mstyles.BagFlexBoxBCuponA}>
-                      <div className={Mstyles.discountimg}>
-                        <Image
-                          src={`/discount.png`}
-                          alt="image"
-                          layout="responsive"
-                          placeholder='blur'
-                          width={50}
-                          height={50}
-                          quality={100}
-                          blurDataURL={blurredImageData}
+                  <div>
+                    {!Contextdata.CodeApplied &&
+                      <div className={Mstyles.BagFlexBoxBCupon}>
+                        <div className={Mstyles.BagFlexBoxBCuponA}>
+                          <div className={Mstyles.discountimg}>
+                            <Image
+                              src={`/discount.png`}
+                              alt="image"
+                              layout="responsive"
+                              placeholder='blur'
+                              width={50}
+                              height={50}
+                              quality={100}
+                              blurDataURL={blurredImageData}
 
-                        />
+                            />
+                          </div>
+                          <div className={Mstyles.discountText}>
+                            <div><span>Coupons and offers</span></div>
+                            <small>Save more with Coupons and offers</small>
+                          </div>
+                        </div>
+
+                        <div>
+                          <Button variant="outlined" onClick={OpenCouponBox} endIcon={<FiChevronRight />}
+                          size='small'
+                          >
+                            Apply
+                          </Button>
+
+                        </div>
                       </div>
-                      <div className={Mstyles.discountText}>
-                        <div><span>Coupons and offers</span></div>
-                        <small>Save more with Coupons and offers</small>
+                    }
+                    {Contextdata.CodeApplied &&
+                      <div className={Mstyles.BagFlexBoxBCupon}>
+                        <div className={Mstyles.BagFlexBoxBCuponA}>
+                          <div className={Mstyles.gg}>
+                            <Image
+                              src={`/checkitem.png`}
+                              alt="image"
+                             
+                              placeholder='blur'
+                              width={25}
+                              height={25}
+                              quality={100}
+                              blurDataURL={blurredImageData}
+
+                            />
+                          </div>
+                          <div className={Mstyles.discountText}>
+                            <div><span>{CouponData.Ccode}</span></div>
+                            <small>{CouponData.message}</small>
+                          </div>
+                        </div>
+
+                        <div>
+                          <Button size='small' onClick={OpenCouponBox} endIcon={<FiChevronRight />}
+
+                          >
+                            Change
+                          </Button>
+
+                        </div>
                       </div>
-                    </div>
-
-                    <div>
-                      <Button variant="outlined" endIcon={<FiChevronRight />}
-
-                      >
-                        Apply
-                      </Button>
-
-                    </div>
+                    }
                   </div>
+
                   <div className={Mstyles.CartSummybox}>
                     <div className={Mstyles.CartSummyboxA}>
-                     
+
                       <div className={Mstyles.CartSummyboxListBoxItem}>
                         <div className={Mstyles.CartSummyboxListBoxItemA}>
                           <span>Item total</span>
@@ -424,7 +520,7 @@ function Overview() {
 
                         </div>
                         <div className={Mstyles.CartSummyboxListBoxItemB}>
-                          <span className={Mstyles.amttextSub}>₹ {Contextdata.subTotal + Contextdata.Deliveryfee}</span>
+                          <span className={Mstyles.amttextSub}>₹ {Contextdata.Grandtotal}</span>
                         </div>
                       </div>
                     </div>
@@ -433,7 +529,7 @@ function Overview() {
                   <div className={Mstyles.OnlyDesktop}>
                     <div style={{ minHeight: '30px' }}></div>
                     <div className={Mstyles.OnlyDesktopCheckoutBtn}>
-                      <Link href='/Checkout' style={{width: '100%'}}>
+                      <Link href='/Checkout' style={{ width: '100%' }}>
                         <LoadingButton
                           fullWidth
 
@@ -446,8 +542,8 @@ function Overview() {
                         </LoadingButton>
                       </Link>
 
-                      
-                     
+
+
                       <div style={{ minHeight: '20px' }}></div>
                       <div className={Mstyles.totalFinalDiscountBox}>
                         <span>Wow 😍 You saved </span>   <span className={Mstyles.totalFinalDiscount} >₹{Contextdata.FinalDiscount} </span> <span>on this order </span>
@@ -469,13 +565,21 @@ function Overview() {
                       <span>Wow 😍 You saved </span>   <span className={Mstyles.totalFinalDiscount} >₹{Contextdata.FinalDiscount} </span> <span>on this order </span>
                     </div>
                     <div style={{ minHeight: '10px' }}></div>
-                   
+
 
                     <Link href='/Checkout' style={{ width: '100%' }}>
-                      <Button variant="contained" color={"primary"} fullWidth endIcon={<FiChevronRight />}>
-                        Procced to Checkout  <span className={Mstyles.checkputamt}>₹ {Contextdata.subTotal + Deliveryfee}</span>
-                      </Button>
+                      <LoadingButton
+                        fullWidth
+
+                        endIcon={<FiChevronRight />}
+                        loading={LoadingBtn}
+                        loadingPosition="end"
+                        variant="contained"
+                      >
+                        <span> Procced to Checkout</span>
+                      </LoadingButton>
                     </Link>
+
                   </div>
 
                 </div>
@@ -533,6 +637,59 @@ function Overview() {
 
                 <Button onClick={handleClose}>ok</Button>
               </DialogActions>
+            </Dialog>
+          </div>
+          <div>
+
+            <Dialog
+              open={CouponBoxOpen}
+              TransitionComponent={Transition}
+              keepMounted
+              onClose={CloseCouponBox}
+              aria-describedby="alert-dialog-slide-description"
+
+            >
+
+              <DialogContent>
+                <div className={Mstyles.CuponcodeHeader}>
+                  <div>
+                    <span className={Mstyles.CuponcodeHeaderTitle}>Apply Coupon Code</span>
+                  </div>
+                  <div className={Mstyles.CuponcodeHeaderBtn}>
+                    <FiX size={20} onClick={CloseCouponBox} />
+                  </div>
+                </div>
+                <div style={{ height: '30px' }}></div>
+                <form onSubmit={handleSubmit} >
+                  <div>
+
+                    <input
+                      required
+                      placeholder="Enter Coupon Code"
+                      value={CouponCode}
+                      onInput={e => setCouponCode(e.target.value)}
+                      className={Mstyles.CuponcodeInput}
+
+                    />
+                  </div>
+
+                  <div style={{ minHeight: 25 }}></div>
+                  <LoadingButton
+                    fullWidth
+                    onClick={handleSubmit}
+                    endIcon={<FiChevronRight />}
+                    loading={LoadingBtnCoupon}
+                    loadingPosition="end"
+                    variant="contained"
+                    size='small'
+                  >
+                    <span>{Applycodetext}</span>
+                  </LoadingButton>
+                  <div style={{ minHeight: 25 }}></div>
+
+                </form>
+              </DialogContent>
+
             </Dialog>
           </div>
         </div>

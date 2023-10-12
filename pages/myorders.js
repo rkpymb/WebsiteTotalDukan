@@ -21,7 +21,7 @@ import Head from 'next/head';
 import Navbarmain from '../src/components/Parts/Navbarmain'
 import { useRouter, useParams } from 'next/router'
 import { FiEdit, FiChevronRight, FiLogOut, FiShoppingCart, FiShoppingBag, FiList, FiMapPin } from 'react-icons/fi';
-
+import NavbarmainCart from '../src/components/Parts/NavbarmainCart'
 import MyOrdersList from './components/List/MyOrdersList'
 import LoadingButton from '@mui/lab/LoadingButton';
 import Avatar from '@mui/material/Avatar';
@@ -64,7 +64,15 @@ function Overview() {
             <Head>
                 <title>My Orders : Toladukan.com</title>
             </Head>
-            <Navbarmain />
+
+            <div className={Mstyles.OnlyDesktop}>
+
+                <Navbarmain />
+            </div>
+            <div className={Mstyles.OnlyMobile}>
+
+                <NavbarmainCart Title={'My Orders'} />
+            </div>
             <div className={Mstyles.ContainerMainBoxFull}>
 
                 {!isLoading &&

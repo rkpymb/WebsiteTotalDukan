@@ -11,11 +11,25 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import CheckloginStates from '../context/auth/CheckloginStates'
 const clientSideEmotionCache = createEmotionCache();
+
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import '../Styles/globals.css'
 function TokyoApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const getLayout = Component.getLayout ?? ((page) => page);
-
+  const notify = (text) => toast(text, {
+    position: "top-center",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
   Router.events.on('routeChangeStart', nProgress.start);
   Router.events.on('routeChangeError', nProgress.done);
   Router.events.on('routeChangeComplete', nProgress.done);
@@ -26,17 +40,29 @@ function TokyoApp(props) {
       
       <CacheProvider value={emotionCache}>
         <Head>
-          <title>SuperMarks.in</title>
+          <title>Toladukan.com</title>
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
         </Head>
+        <ToastContainer
+          position="top-center"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
         <SidebarProvider>
           <ThemeProvider>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <CssBaseline />
-              {getLayout(<Component {...pageProps} />)}
+              {getLayout(<Component {...pageProps} notify={notify} />)}
             </LocalizationProvider>
           </ThemeProvider>
         </SidebarProvider>

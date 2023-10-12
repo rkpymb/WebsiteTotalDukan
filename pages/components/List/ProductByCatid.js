@@ -139,7 +139,7 @@ function RecentOrders(props) {
 
                     {Retdata.map((item, index) => {
                         return <div className={Mstyles.ProductGridItem}>
-                            <Link href={`/Category/${item.slug}`} key={item.id} style={{ textDecoration: 'none' }}>
+                            <Link href={`/Product/${item.slug}`} key={item.id} style={{ textDecoration: 'none' }}>
                                 <div className={Mstyles.ProductItemImage}>
                                     <Image
                                         src={`${MediaFilesUrl}${MediaFilesFolder}/${item.img}`}

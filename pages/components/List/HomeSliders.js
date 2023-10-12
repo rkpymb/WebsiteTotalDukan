@@ -42,7 +42,7 @@ function RecentOrders() {
             })
                 .then((parsed) => {
                     setRetdata(parsed.ReqD.Banners)
-                    if (parsed.ReqD.Banners.length > 3) {
+                    if (parsed.ReqD.Banners.length > 2) {
                         setIsLoading(false)
                     }
                    
@@ -85,7 +85,10 @@ function RecentOrders() {
                    
                     {Retdata.map((item,index) => {
                         return <SwiperSlide key={index} className={Mstyles.SwiperImgae}>
-                            <img src={`${MediaFilesUrl}${MediaFilesFolder}/${item.image}`} />
+                            <Link href={`/${item.url}`} >
+                                <img src={`${MediaFilesUrl}${MediaFilesFolder}/${item.image}`} />
+                            </Link>
+                           
                         </SwiperSlide>
 
                     }

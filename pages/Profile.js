@@ -8,7 +8,7 @@ import {
     styled
 } from '@mui/material';
 import Link from 'next/link'
-import { LuShoppingBag, LuSearch, LuChevronRight, LuArrowLeft } from "react-icons/lu";
+import { LuShoppingBag, LuSearch, LuBell, LuArrowLeft } from "react-icons/lu";
 import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 import Footer from '../src/components/Parts/Footer'
@@ -21,7 +21,7 @@ import Head from 'next/head';
 import Navbarmain from '../src/components/Parts/Navbarmain'
 import { useRouter, useParams } from 'next/router'
 import { FiEdit, FiChevronRight, FiLogOut, FiShoppingCart, FiShoppingBag, FiList, FiMapPin } from 'react-icons/fi';
-
+import NavbarmainCart from '../src/components/Parts/NavbarmainCart'
 
 import Avatar from '@mui/material/Avatar';
 const OverviewWrapper = styled(Box)(
@@ -61,7 +61,14 @@ function Overview() {
             <Head>
                 <title>Profile : Toladukan.com</title>
             </Head>
-            <Navbarmain />
+            <div className={Mstyles.OnlyDesktop}>
+
+                <Navbarmain />
+            </div>
+            <div className={Mstyles.OnlyMobile}>
+
+                <NavbarmainCart Title={'My Profile'} />
+            </div>
             <div className={Mstyles.ContainerMainBoxFull}>
                 <div className={Mstyles.container50}>
                     <div className={Mstyles.DesktopHeaderProfile}>
@@ -185,9 +192,87 @@ function Overview() {
 
                                 </div>
                             </Link>
-                          
-                           
 
+                            <Link href='/Notifications' >
+                                <div className={Mstyles.UserProfilemenuBoxItem}>
+                                    <div className={Mstyles.UserProfilemenuBoxItemA}>
+                                        <IconButton aria-label="cart">
+                                            <StyledBadge color="secondary" >
+                                                <LuBell />
+                                            </StyledBadge>
+                                        </IconButton>
+                                        <div className={Mstyles.UserProfilemenuBoxItemAText}>
+                                            <span>Notifications</span>
+                                        </div>
+                                    </div>
+                                    <div className={Mstyles.UserProfilemenuBoxItemB}>
+
+                                        <IconButton aria-label="cart" onClick={() => router.back()}>
+                                            <StyledBadge color="secondary" >
+                                                <FiChevronRight />
+                                            </StyledBadge>
+                                        </IconButton>
+                                    </div>
+
+                                </div>
+                            </Link>
+                           
+                            <div className={Mstyles.OnlyMobile}>
+
+                            
+                                <div className={Mstyles.UserProfilemenuBoxItem} onClick={Contextdata.Logout}>
+                                    <div className={Mstyles.UserProfilemenuBoxItemA}>
+                                        <IconButton aria-label="cart">
+                                            <StyledBadge color="secondary" >
+                                                <FiLogOut />
+                                            </StyledBadge>
+                                        </IconButton>
+                                        <div className={Mstyles.UserProfilemenuBoxItemAText}>
+                                            <span>Logout</span>
+                                        </div>
+                                    </div>
+                                    <div className={Mstyles.UserProfilemenuBoxItemB}>
+
+                                        <IconButton aria-label="cart" onClick={() => router.back()}>
+                                            <StyledBadge color="secondary" >
+                                                <FiChevronRight />
+                                            </StyledBadge>
+                                        </IconButton>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div className={Mstyles.OnlyMobile}>
+                                <div style={{ padding: '20px' }}>
+                                    <div className={Mstyles.FooterBox_menu}>
+                                        <h3>Important Links</h3>
+                                        <Link href='/Aboutus' style={{ textDecoration: 'none', color: 'white' }}>
+                                            <li>About us </li>
+                                        </Link>
+                                        <Link href='/Contact' style={{ textDecoration: 'none', color: 'white' }}>
+                                            <li>Contact us </li>
+                                        </Link>
+                                        <Link href='/Privacypolicy' style={{ textDecoration: 'none', color: 'white' }}>
+                                            <li>Privacy Policy </li>
+                                        </Link>
+                                        <Link href='/TermsConsitions' style={{ textDecoration: 'none', color: 'white' }}>
+                                            <li>Terms & Conditions </li>
+                                        </Link>
+                                        <Link href='/Pricing' style={{ textDecoration: 'none', color: 'white' }}>
+                                            <li>Pricing </li>
+                                        </Link>
+                                        <Link href='/RefundPolicy' style={{ textDecoration: 'none', color: 'white' }}>
+                                            <li>Refund Policy </li>
+                                        </Link>
+                                        <Link href='/ShippingandDelivery' style={{ textDecoration: 'none', color: 'white' }}>
+                                            <li>Shipping and Delivery </li>
+                                        </Link>
+
+                                    </div>
+                                </div>
+                              
+                            </div>
                         </div>
                     </div>
                    

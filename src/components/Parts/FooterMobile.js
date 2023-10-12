@@ -3,7 +3,7 @@ import Image from 'next/image'
 import CheckloginContext from '../../../context/auth/CheckloginContext'
 import Mstyles from '../../../Styles/home.module.css'
 
-import { LuShoppingBag, LuSearch, LuHome, LuLayoutList, LuPercent } from "react-icons/lu";
+import { LuShoppingBag, LuSearch, LuHome, LuLayoutList, LuPercent, LuHeadphones } from "react-icons/lu";
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
@@ -68,7 +68,7 @@ const FooterMobile = (props) => {
                                 </IconButton>
                             </div>
                             <div className={Mstyles.FooterMobileMenuBoxItemB}>
-                                <span>Bag</span>
+                                <span>My Bag</span>
                             </div>
                         </div>
                     </Link>

@@ -72,20 +72,22 @@ const NavbarmainCart = (props) => {
 
                             )}
                             {Contextdata.IsLogin && (
-                                <div className={Mstyles.UserAvaTarBox}>
-                                    <div>
-                                        <Avatar alt="Remy Sharp" src="/userdpfile.jpg" />
-                                    </div>
-                                    <div className={Mstyles.OnlyDesktop}>
-                                        <div className={Mstyles.UserAvaTarBoxCircleTextBox}>
-                                            <span>{Contextdata.Data.name}</span>
-                                            <div className={Mstyles.ViewPbtn}>
-                                                <small>View Profile</small> <LuChevronRight />
+                                <Link href='/Profile' >
+                                    <div className={Mstyles.UserAvaTarBox}>
+                                        <div >
+                                            <Avatar src="/userdp.png" />
+                                        </div>
+                                        <div className={Mstyles.OnlyDesktop}>
+                                            <div className={Mstyles.UserAvaTarBoxCircleTextBox}>
+                                                <span>{Contextdata.Data.name}</span>
+                                                <div className={Mstyles.ViewPbtn}>
+                                                    <small>View Profile</small> <LuChevronRight />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                </div>
+                                    </div>
+                                </Link>
 
                             )}
 

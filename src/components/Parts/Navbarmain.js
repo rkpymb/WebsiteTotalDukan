@@ -5,7 +5,7 @@ import Mstyles from '../../../Styles/home.module.css'
 import { AiOutlineLogin } from 'react-icons/ai';
 import Lottie from 'react-lottie'
 import * as animationData from '../../../Data/Lottie/animation_lnfa1lxooffers.json'
-import { LuShoppingBag, LuSearch, LuChevronRight } from "react-icons/lu";
+import { LuShoppingBag, LuSearch, LuChevronRight, LuBell } from "react-icons/lu";
 import Avatar from '@mui/material/Avatar';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
@@ -98,6 +98,13 @@ const Navbarmain = (props) => {
                                 </IconButton>
                             </Link>
                         </div>
+                        <Link href='/Notifications' className={Mstyles.CartIconBox}>
+                            <IconButton aria-label="cart">
+                                <StyledBadge badgeContent={2} color="secondary">
+                                    <LuBell />
+                                </StyledBadge>
+                            </IconButton>
+                        </Link>
 
                         <div className={Mstyles.loginbtnTopBtns}>
                             {!Contextdata.IsLogin && (
