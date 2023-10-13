@@ -100,7 +100,7 @@ const Navbarmain = (props) => {
                         </div>
                         <Link href='/Notifications' className={Mstyles.CartIconBox}>
                             <IconButton aria-label="cart">
-                                <StyledBadge badgeContent={2} color="secondary">
+                                <StyledBadge badgeContent={0} color="secondary">
                                     <LuBell />
                                 </StyledBadge>
                             </IconButton>

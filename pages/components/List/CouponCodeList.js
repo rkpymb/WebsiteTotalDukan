@@ -78,7 +78,7 @@ function RecentOrders() {
                         },
                         992: {
                             spaceBetween: 20,
-                            slidesPerView: 3, // Display 3 slides on desktop (992px or more)
+                            slidesPerView: 3.5, // Display 3 slides on desktop (992px or more)
                         },
                     }}
 
@@ -114,9 +114,9 @@ function RecentOrders() {
                                         <div className={Mstyles.Codetitle}>
                                             <span>{item.CouponCode}</span>
                                         </div>
-                                        <div>
+                                        {/* <div>
                                             <small>{item.Details}</small>
-                                        </div>
+                                        </div> */}
                                         <div className={Mstyles.DiscountTextc}>
                                             {item.Type == 1 &&
 

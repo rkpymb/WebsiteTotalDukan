@@ -114,9 +114,14 @@ function Overview() {
               </div>
             </div>
            
-            <div className={Mstyles.ContainerSecondSliderlist}>
-              <div style={{ minHeight: '10px' }}></div>
+
+            <div className={Mstyles.ContainerMainSlider}>
+              <div style={{ minHeight: '20px' }}></div>
               <HomeSliders2 />
+              
+            </div>
+            <div className={Mstyles.OnlyDesktop}>
+              <div style={{ minHeight: '20px' }}></div>
             </div>
             <div className={Mstyles.ContainerMain}>
               <Trendingbycat />

@@ -197,7 +197,7 @@ function Overview({ Pdata }) {
                                     <small> {`>`} </small>
 
                                     <span>
-                                        <Link href={`/Category/${Pdata.catid}`} style={{ textDecoration: 'none', color: '#818e94' }}>
+                                        <Link href={`/Category/Item/${Pdata.subcatid}`} style={{ textDecoration: 'none', color: '#818e94' }}>
                                             <small>{Pdata.subcatid}</small>
                                         </Link>
                                     </span>

@@ -1,37 +1,38 @@
 import React, { useState, useEffect, useContext } from 'react';
 
 import { useRouter } from 'next/router'
-import CheckloginContext from '../../../context/auth/CheckloginContext'
 import Link from 'next/link';
 
 import Image from 'next/image';
-import { FiChevronRight } from "react-icons/fi";
+import CheckloginContext from '../../../context/auth/CheckloginContext'
 import Mstyles from '../../../Styles/home.module.css';
 import { MediaFilesUrl, MediaFilesFolder } from '../../../Data/config'
-import ProductGridlistLoader from '/src/components/Parts/ProductGridlistLoader'
+import Skeleton from '@mui/material/Skeleton';
 import { LuFilter, LuLayoutList, LuIndianRupee } from "react-icons/lu";
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import ProductGridlistLoader from '/src/components/Parts/ProductGridlistLoader'
+import Fade from '@mui/material/Fade';
+import { LuMinus, LuPlus } from "react-icons/lu";
 
 import {
-
+    Button,
+    useTheme,
     IconButton,
    
-    useTheme,
-    Button
 } from '@mui/material';
-import { LuMinus, LuPlus } from "react-icons/lu";
-function RecentOrders() {
-    const Contextdata = useContext(CheckloginContext)
-    const [Retdata, setRetdata] = useState([]);
-    const [FilterText, setFilterText] = useState('All');
-    const [isLoading, setIsLoading] = useState(true);
-    const router = useRouter()
-    const blurredImageData = 'data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN88enTfwAJYwPNteQx0wAAAABJRU5ErkJggg==';
-    useEffect(() => {
 
+function RecentOrders(props) {
+    const Contextdata = useContext(CheckloginContext)
+    const blurredImageData = 'data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN88enTfwAJYwPNteQx0wAAAABJRU5ErkJggg==';
+    const [Retdata, setRetdata] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [FilterText, setFilterText] = useState('All');
+    const router = useRouter()
+    useEffect(() => {
         const handleSubmit = async () => {
-            const dataid = '08c5th4rh86ht57h6g';
-            const sendUM = { dataid }
-            const data = await fetch("/api/V3/List/ProductsList", {
+            const sendUM = 0
+            const data = await fetch("/api/V3/List/BestSellers", {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json'
@@ -41,7 +42,7 @@ function RecentOrders() {
                 return a.json();
             })
                 .then((parsed) => {
-                    // console.log(parsed.ReqD.PS)
+                    console.log(parsed.ReqD)
                     setRetdata(parsed.ReqD.PS)
                     setIsLoading(false)
                 })
@@ -49,10 +50,7 @@ function RecentOrders() {
         handleSubmit()
 
 
-    }, [router.query])
-
-    const theme = useTheme();
-
+    }, [])
 
     //   filter product
     // Function to sort products by price from low to high
@@ -80,31 +78,57 @@ function RecentOrders() {
         setAnchorEl(null);
     };
 
+    const theme = useTheme();
+
     return (<>
         {!isLoading &&
-        
+
             <div>
-        
+
                 <div className={Mstyles.MainTitleBox}>
                     <div className={Mstyles.MainTitleBoxA}>
                         <div className={Mstyles.MainTitleBoxAIcon}>
                             <LuLayoutList size={20} />
                         </div>
                         <div className={Mstyles.MainTitleBoxAtext}>
-                            Today's BestSellers
+                           Best Offers
                         </div>
                     </div>
                     <div className={Mstyles.MainTitleBoxB}>
-                       
-                        <Link href={`/BestSellers`}>
-                            <Button variant="outlined" endIcon={<FiChevronRight />}
+                        <div className={Mstyles.OnlyDesktop}>
+                            <div style={{ margin: 10 }}>
+                                <span>{FilterText}</span>
+                            </div>
+                        </div>
+                        <Button variant="contained" endIcon={<LuFilter />}
+                            id="fade-button"
+                            aria-controls={open ? 'fade-menu' : undefined}
+                            aria-haspopup="true"
+                            aria-expanded={open ? 'true' : undefined}
+                            onClick={handleClick}
+                        >
+                            Filter
+                        </Button>
+                        <Menu
+                            id="fade-menu"
+                            MenuListProps={{
+                                'aria-labelledby': 'fade-button',
+                            }}
+                            anchorEl={anchorEl}
+                            open={open}
+                            onClose={handleClose}
+                            TransitionComponent={Fade}
+                        >
+                            <MenuItem onClick={sortLowToHigh}>
 
-                                size='small'
-                            >
-                                see all
-                            </Button>
-                        </Link>
+                                <small>Low to High Price</small>
+                            </MenuItem>
+                            <MenuItem onClick={sortHighToLow}>
+                                <small>High to Low Price</small>
+                            </MenuItem>
 
+
+                        </Menu>
                     </div>
 
 
@@ -114,7 +138,10 @@ function RecentOrders() {
 
                     {Retdata.map((item, index) => {
                         return <div className={Mstyles.ProductGridItem}>
-                            <Link href={`/Product/${item.slug}`} key={index} style={{ textDecoration: 'none' }}>
+                            <div className={Mstyles.DicountProducttag}>
+                                ₹ {item.mprice - item.sprice} OFF
+                            </div>
+                            <Link href={`/Product/${item.slug}`} key={item.id} style={{ textDecoration: 'none' }}>
                                 <div className={Mstyles.ProductItemImage}>
                                     <Image
                                         src={`${MediaFilesUrl}${MediaFilesFolder}/${item.img}`}
@@ -129,6 +156,8 @@ function RecentOrders() {
                                     />
                                 </div>
                             </Link>
+
+                           
 
                             <div className={Mstyles.ProductItemTitle}>
                                 <span>{item.title.slice(0, 35) + '...'}</span>
@@ -176,14 +205,14 @@ function RecentOrders() {
 
                     )}
                 </div>
-           </div>
+            </div>
 
         }
 
         {isLoading &&
             <div >
 
-                <ProductGridlistLoader />
+                <ProductGridlistLoader/>
             </div>
 
         }

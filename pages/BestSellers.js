@@ -11,8 +11,7 @@ import Footer from '../src/components/Parts/Footer'
 import ProcedToCheckout from 'src/components/Parts/ProcedToCheckout'
 import FooterMobile from '/src/components/Parts/FooterMobile'
 
-import OffersProducts from './components/List/OffersProducts'
-import CouponCodeList from './components/List/CouponCodeList'
+import BestSellers from './components/List/BestSellers'
 import BaseLayout from 'src/layouts/BaseLayout';
 import Mstyles from '../Styles/home.module.css'
 import CheckloginContext from '../context/auth/CheckloginContext'
@@ -59,7 +58,7 @@ function Overview() {
     return (
         <OverviewWrapper>
             <Head>
-                <title>Offers : Toladukan.com</title>
+                <title>BestSellers : Toladukan.com</title>
             </Head>
 
             <div className={Mstyles.OnlyDesktop}>
@@ -68,15 +67,14 @@ function Overview() {
             </div>
             <div className={Mstyles.OnlyMobile}>
 
-                <NavbarmainCart Title={'Offers'} />
+                <NavbarmainCart Title={'BestSellers'} />
             </div>
             <div className={Mstyles.ContainerMainBoxFull}>
 
                 <div className={Mstyles.container}>
-                    <CouponCodeList/>
                     <div style={{ minHeight: '20px' }}></div>
-                    <OffersProducts />
-
+                    <BestSellers />
+                  
                     <div style={{ minHeight: '20px' }}></div>
                 </div>
             </div>

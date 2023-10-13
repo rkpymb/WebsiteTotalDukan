@@ -66,7 +66,8 @@ const Login = () => {
       
     }
     // On submit mobile
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         if (usermobile.length == 10) {
             setLoading(true)
             const sendUM = { usermobile: usermobile }
@@ -127,7 +128,8 @@ const Login = () => {
         }
     }
     
-    const verifyOTPBTN = async () => {
+    const verifyOTPBTN = async (e) => {
+        e.preventDefault();
         if (sot !== '') {
             setLoading(true)
             const sendUM = { usermobile: usermobile, EnterText: sot }
@@ -217,10 +219,12 @@ const Login = () => {
                                 <div><h3>Log in to your Account </h3>
                                     <small>Enter your Phone number to continue OTP will be sent on this number for verfification</small>
                                 </div>
-                               
-                                <div className={Mstyles.LoginBox_input}>
-                                    <TextField fullWidth label="Enter Mobile Number" id="userm" type="number" onChange={handleChangeMob} value={usermobile} />
-                                </div>
+                                <form onSubmit={handleSubmit}>
+                                    <div className={Mstyles.LoginBox_input}>
+                                        <TextField fullWidth label="Enter Mobile Number" id="userm" type="number" onChange={handleChangeMob} value={usermobile} />
+                                    </div>
+                                </form>
+                                
                                 <div style={{ height: '20px' }}> </div>
                                 {isalert && (
                                     <Stack sx={{ width: '100%' }} spacing={2}>
@@ -267,9 +271,12 @@ const Login = () => {
                                 <div><h3>Enter OTP </h3>
                                     <span>OTP Succesfully Sent on +91{usermobile}</span> <span style={{marginLeft:'10px', color:'blue'}} onClick={ShowMobile}><FiEdit/></span>
                                 </div>
-                                <div className={Mstyles.LoginBox_input}>
-                                    <TextField fullWidth label="Enter OTP" id="otpinput" type="number" onChange={handleChangeOTP} autoFocus />
-                                </div>
+                                <form onSubmit={verifyOTPBTN}>
+                                    <div className={Mstyles.LoginBox_input}>
+                                        <TextField fullWidth label="Enter OTP" id="otpinput" type="number" onChange={handleChangeOTP} autoFocus />
+                                    </div>
+                                </form>
+                               
                                 <div style={{ height: '20px' }}> </div>
                                 {isalert && (
                                     <Stack sx={{ width: '100%' }} spacing={2}>

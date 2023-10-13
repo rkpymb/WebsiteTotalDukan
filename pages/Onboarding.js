@@ -44,7 +44,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
         padding: '0 4px',
     },
 }));
-function Overview() {
+function Overview(props) {
     const blurredImageData = 'data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN88enTfwAJYwPNteQx0wAAAABJRU5ErkJggg==';
     const router = useRouter()
     const [Retdata, setRetdata] = useState();
@@ -107,7 +107,8 @@ function Overview() {
 
         } else {
             setLoadingBtn(false)
-            alert('All fields are required')
+            props.notify('Your Name is required for complete registration')
+           
         }
 
 
@@ -171,22 +172,20 @@ function Overview() {
                                         </div>
 
                                         <div style={{ minHeight: '20px' }}></div>
-
-
-
-                                        <LoadingButton
-                                            fullWidth
-                                            onClick={handleSubmit}
-                                            endIcon={<FiChevronRight />}
-                                            loading={LoadingBtn}
-                                            loadingPosition="end"
-                                            variant="contained"
-                                        >
-                                            <span>Save Profile</span>
-                                        </LoadingButton>
+                                    
 
 
                                     </form>
+                                    <LoadingButton
+                                        fullWidth
+                                        onClick={handleSubmit}
+                                        endIcon={<FiChevronRight />}
+                                        loading={LoadingBtn}
+                                        loadingPosition="end"
+                                        variant="contained"
+                                    >
+                                        <span>Save Profile</span>
+                                    </LoadingButton>
                                     <div style={{ minHeight: '10px' }}></div>
                                 </div>
 

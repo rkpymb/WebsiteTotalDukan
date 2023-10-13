@@ -59,7 +59,7 @@ function RecentOrders() {
             <div>
                 <Swiper
 
-                    slidesPerView={2}
+                    slidesPerView={1.5}
                     spaceBetween={5}
                     freeMode={true}
                     pagination={{
@@ -70,11 +70,11 @@ function RecentOrders() {
                     className="mySwiper"
                     breakpoints={{
                         768: {
-                            slidesPerView: 2, // Display 2 slides on tablets (768px or more)
+                            slidesPerView:1.5 // Display 2 slides on tablets (768px or more)
                         },
                         992: {
-                            spaceBetween: 20,
-                            slidesPerView: 3, // Display 3 slides on desktop (992px or more)
+                            spaceBetween: 10,
+                            slidesPerView: 2.5, // Display 3 slides on desktop (992px or more)
                         },
                     }}
 
@@ -83,10 +83,19 @@ function RecentOrders() {
 
                    
                     {Retdata.map((item,index) => {
-                        return <SwiperSlide key={index} className={Mstyles.SecondSwiperImg}>
-                            <Link href={`/${item.url}`} >
-                                <img src={`${MediaFilesUrl}${MediaFilesFolder}/${item.image}`} />
-                            </Link>
+                        return <SwiperSlide key={index}>
+                            <div className={Mstyles.SecondSwiperImg}>
+                                <Link href={`/${item.url}`} >
+                                    <div style={{display: 'flex'}}>
+                                        <div className={Mstyles.OnlyMobile}>
+                                            <div style={{ minWidth: '5px' }}></div>
+                                        </div>
+                                        <img src={`${MediaFilesUrl}${MediaFilesFolder}/${item.image}`} />
+                                       
+                                    </div>
+                                </Link>
+                            </div>
+                          
                            
                         </SwiperSlide>
 

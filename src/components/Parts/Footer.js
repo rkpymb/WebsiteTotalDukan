@@ -37,26 +37,17 @@ const Footer = () => {
         </div>
         <div className={styles.FooterBox_menu}>
           <h3>Important Links</h3>
-          <Link href='/Aboutus' style={{ textDecoration: 'none',color:'white' }}>
+          <Link href='/about' style={{ textDecoration: 'none', color: 'white' }}>
             <li>About us </li>
           </Link>
-          <Link href='/Contact' style={{ textDecoration: 'none',color:'white' }}>
+          <Link href='/contact' style={{ textDecoration: 'none', color: 'white' }}>
             <li>Contact us </li>
           </Link>
-          <Link href='/Privacypolicy' style={{ textDecoration: 'none',color:'white' }}>
+          <Link href='/privacypolicy' style={{ textDecoration: 'none', color: 'white' }}>
             <li>Privacy Policy </li>
           </Link>
-          <Link href='/TermsConsitions' style={{ textDecoration: 'none',color:'white' }}>
+          <Link href='/termsandconditions' style={{ textDecoration: 'none', color: 'white' }}>
             <li>Terms & Conditions </li>
-          </Link>
-          <Link href='/Pricing' style={{ textDecoration: 'none',color:'white' }}>
-            <li>Pricing </li>
-          </Link>
-          <Link href='/RefundPolicy' style={{ textDecoration: 'none',color:'white' }}>
-            <li>Refund Policy </li>
-          </Link>
-          <Link href='/ShippingandDelivery' style={{ textDecoration: 'none',color:'white' }}>
-            <li>Shipping and Delivery </li>
           </Link>
          
         </div>

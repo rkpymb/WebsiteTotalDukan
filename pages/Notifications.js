@@ -73,7 +73,7 @@ function Overview() {
             <div className={Mstyles.ContainerMainBoxFull}>
 
                 <div className={Mstyles.container}>
-                    <CouponCodeList/>
+                    <CouponCodeList />
                     <div style={{ minHeight: '20px' }}></div>
                     <OffersProducts />
 
