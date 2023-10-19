@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[5104],{79219:function(n,_,e){(window.__NEXT_P=window.__NEXT_P||[]).push(["/components/List/BestSellers",function(){return e(11880)}])}},function(n){n.O(0,[9570,5201,400,1664,5296,6549,4347,9260,6412,6699,7737,1880,9774,2888,179],function(){return n(n.s=79219)}),_N_E=n.O()}]);

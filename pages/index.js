@@ -101,7 +101,7 @@ function Overview() {
                 <Singerbanner />
               </div>
             </div>
-           
+          
             <div className={Mstyles.ContainerFullindex}>
               <div className={Mstyles.OnlyDesktop}>
                 <div style={{ minHeight: '30px' }}></div>
@@ -135,6 +135,7 @@ function Overview() {
             <div className={Mstyles.OnlyDesktop}>
               <Footer />
             </div>
+            <p>2.20</p>
             <ProcedToCheckout/>
             <div className={Mstyles.OnlyMobile}>
               <FooterMobile />
