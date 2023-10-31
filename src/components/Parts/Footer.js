@@ -12,7 +12,7 @@ const Footer = () => {
           <div className={styles.dataspacer}> </div>
           <Link href='/' style={{ textDecoration: 'none' }}>
             <div className={styles.logomain}>
-              <img src='/tolodukanLogoWeb.svg' alt='logo' className={styles.NavLogo} />
+              <img src='/logotola.png' alt='logo' className={styles.NavLogo} />
             </div>
           </Link>
           <p>{AppName} {ShortAbout}</p>
@@ -49,15 +49,15 @@ const Footer = () => {
           <Link href='/termsandconditions' style={{ textDecoration: 'none', color: 'white' }}>
             <li>Terms & Conditions </li>
           </Link>
-         
+
         </div>
         <div className={styles.FooterBox_menu}>
           <h3>User Links</h3>
-          
-          <Link href='/Profile' style={{ textDecoration: 'none',color:'white' }}>
+
+          <Link href='/Profile' style={{ textDecoration: 'none', color: 'white' }}>
             <li>My Profile </li>
           </Link>
-          <Link href='/bag' style={{ textDecoration: 'none',color:'white' }}>
+          <Link href='/bag' style={{ textDecoration: 'none', color: 'white' }}>
             <li>My Bag </li>
           </Link>
           <Link href='/myorders' style={{ textDecoration: 'none', color: 'white' }}>
@@ -66,10 +66,10 @@ const Footer = () => {
           <Link href='/myaddress' style={{ textDecoration: 'none', color: 'white' }}>
             <li>My Address</li>
           </Link>
-          
-          
-         
-        
+
+
+
+
         </div>
         <div className={styles.FooterBox_address}>
           <h3>Contact us</h3>
@@ -86,20 +86,29 @@ const Footer = () => {
             <small>{Contactinfo.ContactEmail}</small>
           </div>
           <div style={{ height: '20px' }}> </div>
-          <Link className={styles.AppLogoBox} href='https://play.google.com/store/apps/details?id=com.supermarksapp' style={{ textDecoration: 'none', color: 'white' }}>
+          <Link className={styles.AppLogoBox} href='https://play.google.com/store/apps/details?id=com.toladukan' style={{ textDecoration: 'none', color: 'white' }}>
             <div className={styles.AppLogoBoxB}>
-              <img src='https://server.supermarks.in/Storage/img/2OUlQplaystore.png' width='100%' />
+              <img src='/playstoreicon.png' width='100%' />
             </div>
-            
+
           </Link>
 
         </div>
       </div>
       <div className={styles.Bottom_menu}>
-        <small>© 2022 {DomainURL} All Rights Reserved.</small>
+        <div>
+          <small>© 2022 {DomainURL} All Rights Reserved. </small>
+        </div>
+        <div style={{marginLeft:5}}>
+        <Link href='https://instagram.com/rkp.developer' style={{ textDecoration: 'none', color: 'white' }}>
+        <span style={{ fontSize: '12px' }}> Made by rkp.developer</span>
+
+        </Link>
+        </div>
       </div>
-    </>
     
+    </>
+
 
   )
 }

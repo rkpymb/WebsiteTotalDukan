@@ -1,0 +1,14 @@
+[
+    {
+      "relation": [
+        "delegate_permission/common.handle_all_urls"
+      ],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.toladukan",
+        "sha256_cert_fingerprints": [
+          "EA:96:79:18:21:59:04:70:D5:F3:59:1B:95:34:13:ED:06:18:FA:1A:B9:20:63:13:ED:C5:5A:4E:AD:A9:DC:3D"
+        ]
+      }
+    }
+  ]

@@ -135,7 +135,7 @@ function Overview() {
             <div className={Mstyles.OnlyDesktop}>
               <Footer />
             </div>
-            <p>2.20</p>
+            
             <ProcedToCheckout/>
             <div className={Mstyles.OnlyMobile}>
               <FooterMobile />

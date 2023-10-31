@@ -214,7 +214,7 @@ const Login = () => {
                             <div className={Mstyles.logomainBox}>
                                 <div style={{ height: '10px' }}> </div>
                                 <div className={Mstyles.logomain}>
-                                    <img src='/tolodukanLogoWeb.svg' alt='logo' />
+                                    <img src='/logotola.png' alt='logo' />
                                 </div>
                                 <div><h3>Log in to your Account </h3>
                                     <small>Enter your Phone number to continue OTP will be sent on this number for verfification</small>
@@ -266,7 +266,7 @@ const Login = () => {
 
                                 <div style={{ height: '10px' }}> </div>
                                 <div className={Mstyles.logomain}>
-                                    <img src='/tolodukanLogoWeb.svg' alt='logo' />
+                                    <img src='/logotola.png' alt='logo' />
                                 </div>
                                 <div><h3>Enter OTP </h3>
                                     <span>OTP Succesfully Sent on +91{usermobile}</span> <span style={{marginLeft:'10px', color:'blue'}} onClick={ShowMobile}><FiEdit/></span>

@@ -1642,7 +1642,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 40%;
+  width: 50%;
+  cursor: pointer;
 }
 
 .ReviewItemBox {
@@ -3559,7 +3560,7 @@
 }
 
 .logomain {
-  width: 100px;
+  width: 50px;
   /* height: 40px; */
   cursor: pointer;
 
@@ -5585,7 +5586,7 @@
   }
 
   .logomain {
-    width: 80px;
+    width: 40px;
     height: auto;
   }
 

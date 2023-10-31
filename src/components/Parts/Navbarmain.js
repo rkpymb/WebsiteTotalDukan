@@ -46,7 +46,7 @@ const Navbarmain = (props) => {
                         <div className={Mstyles.logo}>
                             <Link href='/'>
                                 <div className={Mstyles.logomain}>
-                                    <img src='/tolodukanLogoWeb.svg' alt='logo' className={Mstyles.NavLogo} />
+                                    <img src='/logotola.png' alt='logo' />
                                 </div>
                             </Link>
                         </div>
