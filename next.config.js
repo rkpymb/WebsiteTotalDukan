@@ -4,19 +4,13 @@ const nextConfig = {
   swcMinify: true,
   
   images: {
-    domains: ['fmenew.sgp1.cdn.digitaloceanspaces.com', 'api.toladukan.com', 'localhost'],
-    loader: 'imgix',
-    path: '',
+    domains: ['api.toladukan.com', 'localhost']
+    
   },
   eslint: {
     ignoreDuringBuilds: true,
   },
-  experimental: {
-    images: {
-      unoptimized: true,
-      
-    }
-  },
+ 
   trailingSlash:true,
   async redirects() {
     return [

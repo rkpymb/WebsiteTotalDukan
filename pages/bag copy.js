@@ -8,7 +8,6 @@ import {
   styled
 } from '@mui/material';
 import Image from 'next/image';
-import { TbDiscount2 } from "react-icons/tb";
 import { LuMinus, LuPlus } from "react-icons/lu";
 import { FiChevronRight, FiX } from 'react-icons/fi';
 import * as animationData from '../Data/Lottie/animation_lmuw02v7.json'
@@ -420,7 +419,17 @@ function Overview(props) {
                       <div className={Mstyles.BagFlexBoxBCupon}>
                         <div className={Mstyles.BagFlexBoxBCuponA}>
                           <div className={Mstyles.discountimg}>
-                           <TbDiscount2 size={25}/>
+                            <Image
+                              src={`/discount.png`}
+                              alt="image"
+                              layout="responsive"
+                              placeholder='blur'
+                              width={50}
+                              height={50}
+                              quality={100}
+                              blurDataURL={blurredImageData}
+
+                            />
                           </div>
                           <div className={Mstyles.discountText}>
                             <div><span>Coupons and offers</span></div>
