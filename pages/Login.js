@@ -71,7 +71,7 @@ const Login = () => {
         if (usermobile.length == 10) {
             setLoading(true)
             const sendUM = { usermobile: usermobile }
-            const data = await fetch("api/V2/auth/ProcessMobile", {
+            const data = await fetch("/api/V2/auth/ProcessMobile", {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json'
