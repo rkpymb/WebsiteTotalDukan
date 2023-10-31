@@ -47,15 +47,7 @@ function Overview() {
     const [Retdata, setRetdata] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const Contextdata = useContext(CheckloginContext)
-    useEffect(() => {
-        if (Contextdata.IsLogin == true) {
-            setIsLoading(false)
-        } else {
-            router.push('/Login')
-        }
-
-
-    });
+   
     return (
         <OverviewWrapper>
             <Head>

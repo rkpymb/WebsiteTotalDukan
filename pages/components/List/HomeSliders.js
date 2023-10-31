@@ -86,6 +86,7 @@ function RecentOrders() {
                     {Retdata.map((item,index) => {
                         return <SwiperSlide key={index} className={Mstyles.SwiperImgae}>
                             <Link href={`/${item.url}`} >
+                                
                                 <img src={`${MediaFilesUrl}${MediaFilesFolder}/${item.image}`} />
                             </Link>
                            
