@@ -133,7 +133,7 @@ const Login = () => {
         if (sot !== '') {
             setLoading(true)
             const sendUM = { usermobile: usermobile, EnterText: sot }
-            const data = await fetch("api/V2/auth/CheckMobileOTP", {
+            const data = await fetch("/api/V2/auth/CheckMobileOTP", {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json'
@@ -169,21 +169,7 @@ const Login = () => {
         }
     }
 
-    const SendWelcomeMsg = async () => {
-        const sendUM = { mobile:usermobile }
-        const data = await fetch(`${BASE_URL}api/Send/Email/Send_Student/Welcome/emailsend.php`, {
-            method: "POST",
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(sendUM)
-        }).then((a) => {
-            return a.json();
-        })
-            .then((parsed) => {
-            //    console.log('Welcome')
-            })
-    }
+   
 
     const ShowMobile = async () => {
         setOtpbox(false)
