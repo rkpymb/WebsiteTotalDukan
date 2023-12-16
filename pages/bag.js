@@ -331,7 +331,7 @@ function Overview(props) {
                             <span>{Contextdata.ItemsinCart} Items in your bag</span>
                           }
                           {Contextdata.ItemsinCart == 1 &&
-                            <span>{Contextdata.ItemsinCart} Item in your ba</span>
+                            <span>{Contextdata.ItemsinCart} Item in your bag</span>
                           }
                         </div>
                         <div className={Mstyles.MobileCatHB}>

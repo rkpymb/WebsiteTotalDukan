@@ -51,8 +51,6 @@ function RecentOrders(props) {
 
     }, [])
 
-    //   filter product
-    // Function to sort products by price from low to high
     const sortLowToHigh = () => {
         const sortedProducts = [...Retdata].sort((a, b) => a.mprice - b.mprice);
         setRetdata(sortedProducts);
