@@ -212,8 +212,8 @@ function Overview({ Pdata }) {
                                     <span>{Pdata.tagline}</span>
                                 </div>
                                 <div className={Mstyles.PriceboxProduct}>
-                                    <span>₹ {Pdata.mprice}</span>
-                                    <small> <del> {Pdata.sprice}</del></small>
+                                    <span>₹ {Pdata.sprice}</span>
+                                    <small> <del> {Pdata.mprice}</del></small>
                                     <small> ({Pdata.UnitNumber}</small>  <small>{Pdata.UnitText})</small>
                                 </div>
                                 <div className={Mstyles.ProductDetailsbox}>
