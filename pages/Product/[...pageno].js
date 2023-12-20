@@ -15,17 +15,28 @@ import BaseLayout from 'src/layouts/BaseLayout';
 import Mstyles from '../../Styles/home.module.css'
 import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
-import {  LuArrowLeft } from "react-icons/lu";
+import { LuArrowLeft } from "react-icons/lu";
 import CheckloginContext from '../../context/auth/CheckloginContext'
 import Link from 'src/components/Link';
 import Head from 'next/head';
 import Navbarmain from '../../src/components/Parts/Navbarmain'
-import {  FiShare2 } from "react-icons/fi";
+import { FiShare2 } from "react-icons/fi";
 import TrendingProducts from '../components/List/TrendingProducts'
 import Slide from '@mui/material/Slide';
 import CouponCodeList from '../components/List/CouponCodeList'
 import Image from 'next/image'
 import { useRouter, useParams } from 'next/router'
+
+import Skeleton from '@mui/material/Skeleton';
+
+// import required modules
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
 
 export async function getServerSideProps(context) {
     const DataSlug = context.query.pageno[0];
@@ -80,7 +91,13 @@ function Overview({ Pdata }) {
     const blurredImageData = 'data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN88enTfwAJYwPNteQx0wAAAABJRU5ErkJggg==';
     const router = useRouter()
     const [IsLoading, setIsLoading] = useState(true);
+    const [ImgLoading, setImgLoading] = useState(true);
     const [ShareImg, setShareImg] = useState(`${MediaFilesUrl}${MediaFilesFolder}/${Pdata.img}`);
+
+
+    const [Retdata, setRetdata] = useState([]);
+
+
 
     const [open, setOpen] = useState(false);
 
@@ -93,9 +110,39 @@ function Overview({ Pdata }) {
     };
 
 
+    const GetImglist = async () => {
+
+        const sendUM = {
+            pid: Pdata._id,
+            slug: Pdata.slug,
+        }
+        const data = await fetch("/api/V3/List/ProductimgList", {
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(sendUM)
+        }).then((a) => {
+            return a.json();
+        })
+            .then((parsed) => {
+                console.log(parsed.ReqD.Productimg)
+
+                if (parsed.ReqD.Productimg) {
+                    setRetdata(parsed.ReqD.Productimg)
+                    setImgLoading(false)
+                }
+
+            })
+    }
+
+
     useEffect(() => {
-        console.log(Pdata)
+        GetImglist()
     }, []);
+
+
+
 
     const shareContent = async () => {
         try {
@@ -122,7 +169,7 @@ function Overview({ Pdata }) {
                 <meta property="og:image" content={ShareImg} />
             </Head>
             <Navbarmain />
-            
+
             <div className={Mstyles.ProductBoxMianContainer}>
                 <div className={Mstyles.ContainerMain}>
                     <div className={Mstyles.OnlyDesktop}>
@@ -151,7 +198,7 @@ function Overview({ Pdata }) {
                                 >
                                     Share
                                 </Button>
-                                
+
                             </div>
                         </div>
 
@@ -161,17 +208,104 @@ function Overview({ Pdata }) {
 
                             <div className={Mstyles.ProductImageBox}>
 
-                                <Image
-                                    src={`${MediaFilesUrl}${MediaFilesFolder}/${Pdata.img}`}
-                                    alt="image"
-                                    layout="responsive"
-                                    placeholder='blur'
-                                    width={50}
-                                    height={50}
-                                    quality={100}
-                                    blurDataURL={blurredImageData}
 
-                                />
+
+                                {!ImgLoading &&
+                                    <div>
+                                        <Swiper
+                                            breakpoints={{
+                                                768: {
+                                                    slidesPerView: 1, // Display 2 slides on tablets (768px or more)
+                                                },
+                                                992: {
+                                                    slidesPerView: 1, // Display 3 slides on desktop (992px or more)
+                                                },
+                                            }}
+                                            spaceBetween={5}
+                                            centeredSlides={false}
+                                            autoplay={{
+                                                delay: 2500,
+                                                disableOnInteraction: true,
+                                            }}
+                                            pagination={{
+                                                clickable: true,
+                                            }}
+                                            navigation={true}
+                                            modules={[Autoplay, Pagination, Navigation]}
+
+
+                                        >
+
+                                            <SwiperSlide className={Mstyles.Productimg}>
+                                                <img src={`${MediaFilesUrl}${MediaFilesFolder}/${Pdata.img}`} />
+
+                                            </SwiperSlide>
+                                            {Retdata.map((item, index) => {
+                                                return <SwiperSlide key={index} className={Mstyles.Productimg}>
+                                                    <img src={`${MediaFilesUrl}${MediaFilesFolder}/${item.image}`} />
+
+                                                </SwiperSlide>
+
+                                            }
+
+                                            )}
+
+
+                                        </Swiper>
+
+                                    </div>
+
+                                }
+
+
+
+                                {ImgLoading &&
+                                    <div>
+
+                                        <Swiper
+
+                                            breakpoints={{
+                                                768: {
+                                                    slidesPerView: 1, // Display 2 slides on tablets (768px or more)
+                                                },
+                                                992: {
+                                                    slidesPerView: 1, // Display 3 slides on desktop (992px or more)
+                                                },
+                                            }}
+                                            spaceBetween={10}
+                                            centeredSlides={false}
+                                            autoplay={{
+                                                delay: 2500,
+                                                disableOnInteraction: true,
+                                            }}
+                                            pagination={{
+                                                clickable: true,
+                                            }}
+                                            navigation={true}
+                                            modules={[Autoplay, Pagination, Navigation]}
+
+
+                                        >
+
+                                            <SwiperSlide className={Mstyles.SwiperImgae}>
+                                                <Skeleton variant="rounded" width={'100%'} height={230} />
+                                            </SwiperSlide>
+                                            <SwiperSlide className={Mstyles.SwiperImgae}>
+                                                <Skeleton variant="rounded" width={'100%'} height={230} />
+                                            </SwiperSlide>
+                                            <SwiperSlide className={Mstyles.SwiperImgae}>
+                                                <Skeleton variant="rounded" width={'100%'} height={230} />
+                                            </SwiperSlide>
+                                            <SwiperSlide className={Mstyles.SwiperImgae}>
+                                                <Skeleton variant="rounded" width={'100%'} height={230} />
+                                            </SwiperSlide>
+
+
+
+
+                                        </Swiper>
+                                    </div>
+                                }
 
                             </div>
 
@@ -222,7 +356,7 @@ function Overview({ Pdata }) {
                                 </div>
 
                             </div>
-                           
+
                             <div className={Mstyles.OnlyDesktop}>
                                 <div style={{ minHeight: '30px' }}></div>
                             </div>
@@ -263,34 +397,34 @@ function Overview({ Pdata }) {
                                     </Button>
 
                                 </div>
-                               
+
                             </div>
                             <div className={Mstyles.OnlyDesktop}>
                                 <div style={{ minHeight: '30px' }}></div>
                             </div>
                             <CouponCodeList />
-                          
+
                         </div>
                     </div>
                     <div className={Mstyles.OnlyDesktop}>
 
                         <div style={{ minHeight: '50px' }}></div>
                     </div>
-                   
+
                     <div className={Mstyles.OnlyMobile}>
 
                         <div style={{ minHeight: '20px' }}></div>
                     </div>
-                   
+
                     <TrendingProducts />
                     <div style={{ minHeight: '150px' }}></div>
                 </div>
-               
+
             </div>
-          
+
 
             <ProcedToCheckout />
-            
+
         </OverviewWrapper>
     );
 }

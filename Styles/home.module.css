@@ -328,9 +328,7 @@
 
 
 
-.ProductImageBox {
-  width: 100%;
-}
+
 
 .smallcatimg {
   width: 50px;
@@ -483,6 +481,15 @@
   min-width: 399px;
   cursor: pointer;
 
+}
+
+.Productimg {
+ 
+  cursor: pointer;
+
+}
+.Productimg img{
+  width: 100%;
 }
 
 .OfferTabTop {
