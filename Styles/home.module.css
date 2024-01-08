@@ -1,3 +1,33 @@
+.ShareBox {
+
+  position: fixed;
+  top: 20;
+  left: 0;
+  right: 0;
+
+  background-color: #ffffffd6;
+  backdrop-filter: blur(8px);
+  padding: 20px;
+  text-align: center;
+  z-index: 999;
+  width: 50%;
+  margin: auto;
+  border: 2px solid #00a6ff;;
+  border-radius: 20px;
+
+
+}
+
+.ShareBoxHeader {
+  color: black;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+}
+
 .OnlyDesktop {
   display: block;
 }
@@ -484,11 +514,12 @@
 }
 
 .Productimg {
- 
+
   cursor: pointer;
 
 }
-.Productimg img{
+
+.Productimg img {
   width: 100%;
 }
 
@@ -2005,7 +2036,7 @@
   padding: 10px;
 }
 
-.ContentPageHead{
+.ContentPageHead {
   padding-bottom: 10px;
   border-bottom: 1px dashed rgb(193, 179, 179);
 }
@@ -2908,6 +2939,7 @@
 
 
 }
+
 .ContainerMainSlider {
   margin: auto;
   width: 80%;
@@ -6824,10 +6856,30 @@
     border-radius: 10px;
     width: 100%;
   }
+
   .ContainerMainSlider {
     width: 100%;
   }
 
-
+  .ShareBox {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  
+    background-color: #ffffffd6;
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    text-align: center;
+    z-index: 999;
+    width: 100%;
+    margin: auto;
+    border: 2px solid #00a6ff;;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+  
+  }
 
 }

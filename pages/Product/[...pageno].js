@@ -20,13 +20,14 @@ import CheckloginContext from '../../context/auth/CheckloginContext'
 import Link from 'src/components/Link';
 import Head from 'next/head';
 import Navbarmain from '../../src/components/Parts/Navbarmain'
-import { FiShare2 } from "react-icons/fi";
+
 import TrendingProducts from '../components/List/TrendingProducts'
 import Slide from '@mui/material/Slide';
 import CouponCodeList from '../components/List/CouponCodeList'
 import Image from 'next/image'
 import { useRouter, useParams } from 'next/router'
 
+import Sharebtn from '../components/ShareBox/Sharebtn'
 import Skeleton from '@mui/material/Skeleton';
 
 // import required modules
@@ -190,14 +191,7 @@ function Overview({ Pdata }) {
                             </div>
                             <div className={Mstyles.ClearCartBox}>
 
-                                <Button
-                                    onClick={shareContent}
-                                    size="small"
-                                    variant="outlined"
-                                    startIcon={<FiShare2 fontSize="small" />}
-                                >
-                                    Share
-                                </Button>
+                            <Sharebtn />
 
                             </div>
                         </div>
@@ -386,15 +380,8 @@ function Overview({ Pdata }) {
                                     }
                                 </div>
                                 <div className={Mstyles.ProductshareMobile}>
-                                    <Button
-                                        fullWidth
-                                        onClick={shareContent}
-                                        size="small"
-                                        variant="outlined"
-                                        startIcon={<FiShare2 fontSize="small" />}
-                                    >
-                                        Share
-                                    </Button>
+                                
+                                    <Sharebtn/>
 
                                 </div>
 
