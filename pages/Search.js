@@ -6,7 +6,7 @@ import {
   Container,
   Button,
   styled
-} from '@mui/material'; 
+} from '@mui/material';
 
 import { LuShoppingBag, LuSearch, LuChevronRight, LuArrowLeft, LuMinus, LuPlus } from "react-icons/lu";
 
@@ -78,7 +78,7 @@ function Overview() {
   const SearchProduct = async (SQ) => {
     setLoading(true)
     const dataid = '08c5th4rh86ht57h6g';
-    const sendUM = { SearchQuery:SQ }
+    const sendUM = { SearchQuery: SQ }
     const data = await fetch("/api/V3/List/ProductSearch", {
       method: "POST",
       headers: {
@@ -90,14 +90,14 @@ function Overview() {
     })
       .then((parsed) => {
         setLoading(false)
-       setResults(parsed.ReqD.SR)
-     
+        setResults(parsed.ReqD.SR)
+
       })
   }
-  
+
   return (
     <OverviewWrapper>
-      <Head> 
+      <Head>
         <title>Toladukan.com</title>
       </Head>
       <div className={Mstyles.SearchnavbarBox}>
@@ -126,30 +126,30 @@ function Overview() {
 
           </div>
         </div>
-      </div >
-     
+      </div>
+
       <div>
         <div className={Mstyles.ContainerMainBoxFull}>
 
           <div className={Mstyles.ContainerMain}>
-            
+
             <div className={Mstyles.SearchlistBox}>
               {Query !== '' &&
                 <div>
                   <div style={{ fontWeight: 600 }}>Showing results for "{Query}"</div>
                   <div style={{ minHeight: '10px' }}></div>
                 </div>
-              
+
               }
-             
-             
-              
-              {Loading && 
-                <ProductGridlistLoader/>
-              
+
+
+
+              {Loading &&
+                <ProductGridlistLoader />
+
               }
-              {!Loading && 
-                
+              {!Loading &&
+
                 <div className={Mstyles.ProductGrid}>
 
                   {Results.map((item, index) => {
@@ -217,7 +217,7 @@ function Overview() {
                   )}
                 </div>
               }
-                  
+
             </div>
 
             <div style={{ minHeight: '30px' }}></div>
@@ -235,7 +235,7 @@ function Overview() {
       <div className={Mstyles.OnlyMobile}>
         <FooterMobile />
       </div>
-     
+
     </OverviewWrapper>
   );
 }

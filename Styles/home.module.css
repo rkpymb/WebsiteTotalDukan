@@ -12,7 +12,8 @@
   z-index: 999;
   width: 50%;
   margin: auto;
-  border: 2px solid #00a6ff;;
+  border: 2px solid #00a6ff;
+  ;
   border-radius: 20px;
 
 
@@ -6866,7 +6867,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-  
+
     background-color: #ffffffd6;
     backdrop-filter: blur(8px);
     padding: 20px;
@@ -6874,12 +6875,13 @@
     z-index: 999;
     width: 100%;
     margin: auto;
-    border: 2px solid #00a6ff;;
+    border: 2px solid #00a6ff;
+    ;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
-  
+
   }
 
 }
