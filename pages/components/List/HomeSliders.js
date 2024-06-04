@@ -61,10 +61,10 @@ function RecentOrders() {
 
                     breakpoints={{
                         768: {
-                            slidesPerView: 2, // Display 2 slides on tablets (768px or more)
+                            slidesPerView: 2, 
                         },
                         992: {
-                            slidesPerView: 3, // Display 3 slides on desktop (992px or more)
+                            slidesPerView: 3, 
                         },
                     }}
                     spaceBetween={10}
