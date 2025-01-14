@@ -5,6 +5,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+.displaynone {
+  color: white !important;
+
+}
 
 .h60 {
   height: 60px;
@@ -20,10 +24,6 @@ body {
 
 }
 
-.displaynone {
-  color: white !important;
-
-}
 
 /* swipper js */
 .swiper-container {

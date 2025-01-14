@@ -4,7 +4,7 @@ const nextConfig = {
   swcMinify: true,
   
   images: {
-    domains: ['api.toladukan.com', 'localhost']
+    domains: ['demoapi.hormosync.com', 'localhost']
     
   },
   eslint: {
